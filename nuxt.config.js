@@ -38,13 +38,55 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    "@nuxtjs/auth"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {
+    proxy: true
+  },
+
+  proxy: {
+    '/issuer-api/': 'http://localhost:8080',
+    '/api/': 'http://localhost:8080'
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: "token",
+          global: true,
+          required: true,
+          type: "Bearer"
+        },
+        user: false,
+        endpoints: {
+          login: { url: "api/auth/login", method: "post" },
+          user: { url: "api/auth/userInfo", method: "get" },
+          logout: false
+        }
+      },
+      redirect: {
+        login: '/login',
+        logout: '/logout',
+        home: '/Credentials'
+      }
+    }
+  },
+
+  router: {
+    middleware: ["auth"]
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  ssr: false,
+  server: {
+    port: 5000
   }
 }
