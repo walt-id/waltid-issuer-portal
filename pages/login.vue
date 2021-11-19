@@ -1,27 +1,40 @@
 <template>
-  <section class="_main bg-light row align-items-center justify-content-center justify-content-lg-start justify-content-md-center justify-content-sm-center">
-    <div id="widget" class="_form d-grid align-items-center bg-white shadow-lg text-center">
-      <div>
-        <h2>Login</h2>
-        <p class="mt-3">Access to your wallet.</p>
-        <form action="" id="login-form" class="my-4" @submit.prevent="login">
-          <div class="my-2 _animation-fade">
-            <input type="email" placeholder="E-mail" name="email" id="login-form-email" class="border rounded px-3" autocomplete="off" v-model="email">
-          </div>
-          <div class="my-2 _animation-fade">
-            <input type="password" placeholder="Password" name="password" id="login-form-password" class="border rounded px-3" autocomplete="off" v-model="password">
-          </div>
-          <div class="my-2">
-            <button type="submit" name="submit" class="text-white border-0 rounded _animation-fade">Login</button>
-          </div>
-          <div class="my-2 d-flex mt-4 justify-content-center">
-            <a href="/signup" class="px-3 py-0">Sign up</a>
-            <a href="/forgot-password" class="px-3 py-0 border-start border-2 ">Forgot password?</a>
-          </div>
-        </form>
-        <a id="copyright" class="_animation-fade" href="https://walt.id/" target="_blank">by walt.id</a>
+  <section class="text-center login-body">
+    <main class="form-signin">
+     <form form action="" id="login-form" class="my-4" @submit.prevent="login">
+      <img class="mb-4" src="https://static.intercomassets.com/avatars/5059525/square_128/custom_avatar-1628056261.png?1628056261" alt="" width="72">
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <div class="form-floating">
+        <input
+          type="email"
+          id="floatingInput"
+          class="form-control"
+          autocomplete="off"
+          name="email"
+          v-model="email"
+          placeholder="E-mail"/>
+        <label for="floatingInput">Email address</label>
       </div>
-    </div>
+      <div class="form-floating">
+        <input
+         type="password"
+         class="form-control"
+         id="floatingPassword"
+         placeholder="Password"
+         name="password"
+         autocomplete="off"
+         v-model="password"/>
+        <label for="floatingPassword">Password</label>
+      </div>
+      <div class="checkbox mb-3">
+       <label>
+         <input type="checkbox" value="remember-me"> Remember me
+       </label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary _animation-fade" button type="submit" name="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+     </form>
+    </main>
   </section>
 </template>
 
@@ -55,5 +68,47 @@ export default {
 </script>
 
 <style scoped>
+  .login-body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: white;
 
+  }
+  .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
 </style>
