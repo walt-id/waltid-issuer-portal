@@ -85,25 +85,68 @@
               folks don’t simply skip over it entirely.
             </p>
             <p>
-              <div v-for="issuable in issuableCredentials" :key="issuable.id">
-                <input
-                  type="checkbox"
-                  :id="'issuable-' + issuable.id"
-                  :name="'issuable-' + issuable.id"
-                  :value="issuable.id"
-                  v-model="checkedCredentials"
-                  checked />
-                <label :for="'issuable-' + issuable.id">{{issuable.type}} | {{issuable.description}}</label>
-              </div>
+              <form>
+                <div v-for="issuable in issuableCredentials" :key="issuable.id" class="row">
+                  <input
+                    type="checkbox"
+                    :id="'issuable-' + issuable.id"
+                    :name="'issuable-' + issuable.id"
+                    :value="issuable.id"
+                    v-model="checkedCredentials"
+                    checked />
+                  <label :for="'issuable-' + issuable.id">{{issuable.type}} | {{issuable.description}}</label>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="First name" aria-label="First name" v-model="userData.firstName">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Family name" aria-label="Family name" v-model="userData.familyName">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Date of birth" aria-label="Date of birth" v-model="userData.dateOfBirth">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Gender" aria-label="Gender" v-model="userData.gender">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Place of birth" aria-label="Place of birth" v-model="userData.placeOfBirth">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Address" aria-label="Address" v-model="userData.currentAddress">
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="ECTS Credit Points" aria-label="ECTS Credit Points" v-model="userData.ectsCreditPoints">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="EQF Level" aria-label="EQF Level" v-model="userData.eqfLevel">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="ISCEDF Code" aria-label="ISCEDF Code" v-model="userData.iscedfCode">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="NQF Level" aria-label="NQF Level" v-model="userData.nqfLevel">
+                  </div>
+                </div>
+              </form>
             </p>
             <p>
-              <a
+              <!--<a
                 href="#"
                 class="btn btn-primary my-2"
                 @click="createPopupWin('/issuer-api/credentials/issuance/request?walletId='+wallets[0].id+'&'+getSelectedCredentialsParams(), wallets[0].description, 500, 700)"
-              >Issue to {{ wallets[0].id }} - POPUP</a>
+              >Issue to {{ wallets[0].id }} - POPUP</a>-->
               <br><br>
-              <button @click="goToWallet(wallets[0].id)" class="btn btn-primary my-2">Issue to {{ wallets[0].id }} - LINK</button>
+              <button @click="goToWallet(wallets[0].id)" class="btn btn-primary my-2">Issue to {{ wallets[0].id }}</button>
             </p>
           </div>
         </div>
@@ -122,7 +165,19 @@
 export default {
   data () {
     return {
-      checkedCredentials: []
+      checkedCredentials: [],
+      userData: {
+        firstName: '',
+        familyName: '',
+        dateOfBirth: '',
+        gender: 'MALE',
+        placeOfBirth: 'Vienna',
+        currentAddress: 'Stefansplatz 1, 1010 Wien, Austria',
+        ectsCreditPoints: '',
+        eqfLevel: '',
+        iscedfCode: '',
+        nqfLevel: ''
+      }
     }
   },
   async asyncData ({ $axios }) {
@@ -140,7 +195,7 @@ export default {
       return this.checkedCredentials.map(id => 'issuableId=' + id).join('&')
     },
     async goToWallet (walletId) {
-      const params = new URLSearchParams()
+      const params = new URLSearchParams(this.userData)
       this.checkedCredentials.forEach(id => params.append('issuableId', id))
       params.append('walletId', walletId)
       const walletUrl = await this.$axios.$get('/issuer-api/credentials/issuance/request', { params })
