@@ -77,10 +77,10 @@
       <section class="py-5 text-center container">
         <div class="row py-lg-5">
           <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light">
+            <h1 class="fw-normal">
               Claim credentials
             </h1>
-            <p class="lead text-muted">
+            <p class="lead text-muted fw-normal">
               Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so
               folks don’t simply skip over it entirely.
             </p>
@@ -96,45 +96,71 @@
                     checked />
                   <label :for="'issuable-' + issuable.id">{{issuable.type}} | {{issuable.description}}</label>
                 </div>
-                <div class="row">
+                <div class="row _forms">
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="First name" aria-label="First name" v-model="userData.firstName">
+                    <div class="right-inner-addon input-container">
+                      <i class="bi bi-card-text"></i>
+                      <input type="text" class="form-control" placeholder="First name" aria-label="First name" v-model="userData.firstName">
+                    </div>
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="Family name" aria-label="Family name" v-model="userData.familyName">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <input type="text" class="form-control" placeholder="Date of birth" aria-label="Date of birth" v-model="userData.dateOfBirth">
-                  </div>
-                  <div class="col">
-                    <input type="text" class="form-control" placeholder="Gender" aria-label="Gender" v-model="userData.gender">
+                    <div class="right-inner-addon input-container">
+                      <i class="bi bi-card-text"></i>
+                      <input type="text" class="form-control" placeholder="Family name" aria-label="Family name" v-model="userData.familyName">
+                    </div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row _forms">
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="Place of birth" aria-label="Place of birth" v-model="userData.placeOfBirth">
+                    <div class="right-inner-addon input-container">
+                      <i class="bi bi-calendar"></i>
+                      <input type="text" class="form-control" placeholder="Date of birth" aria-label="Date of birth" v-model="userData.dateOfBirth">
+                    </div>
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="Address" aria-label="Address" v-model="userData.currentAddress">
+                    <div class="right-inner-addon input-container">
+                      <i class="bi bi-people"></i>
+                      <input type="text" class="form-control" placeholder="Gender" aria-label="Gender" v-model="userData.gender">
+                    </div>
+                  </div>
+                </div>
+                <div class="row _forms">
+                  <div class="col">
+                    <div class="right-inner-addon input-container">
+                      <i class="bi bi-map"></i>
+                      <input type="text" class="form-control" placeholder="Place of birth" aria-label="Place of birth" v-model="userData.placeOfBirth">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="right-inner-addon input-container">
+                      <i class="bi bi-geo-alt"></i>
+                      <input type="text" class="form-control" placeholder="Address" aria-label="Address" v-model="userData.currentAddress">
+                    </div>
                   </div>
                 </div>
                 <hr />
-                <div class="row">
+                <div class="row _forms">
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="ECTS Credit Points" aria-label="ECTS Credit Points" v-model="userData.ectsCreditPoints">
+                    <div class="right-inner-addon input-container">
+                      <input type="text" class="form-control" placeholder="ECTS Credit Points" aria-label="ECTS Credit Points" v-model="userData.ectsCreditPoints">
+                    </div>
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="EQF Level" aria-label="EQF Level" v-model="userData.eqfLevel">
+                    <div class="right-inner-addon input-container">
+                      <input type="text" class="form-control" placeholder="EQF Level" aria-label="EQF Level" v-model="userData.eqfLevel">
+                    </div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row _forms">
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="ISCEDF Code" aria-label="ISCEDF Code" v-model="userData.iscedfCode">
+                    <div class="right-inner-addon input-container">
+                      <input type="text" class="form-control" placeholder="ISCEDF Code" aria-label="ISCEDF Code" v-model="userData.iscedfCode">
+                    </div>
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="NQF Level" aria-label="NQF Level" v-model="userData.nqfLevel">
+                    <div class="right-inner-addon input-container">
+                      <input type="text" class="form-control" placeholder="NQF Level" aria-label="NQF Level" v-model="userData.nqfLevel">
+                    </div>
                   </div>
                 </div>
               </form>
@@ -204,3 +230,70 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.input-container {
+	padding-bottom: 1em;
+}
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon input {
+    padding-left: 35px !important; 
+}
+.left-inner-addon i {
+    position: absolute;
+    padding: 17px 15px;
+    pointer-events: none;
+}
+
+
+.right-inner-addon {
+    position: relative;
+}
+.right-inner-addon input {
+    padding-right: 35px !important;
+}
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 17px 15px;
+    pointer-events: none;
+}
+
+.left-and-right-inner-addon {
+    position: relative;
+}
+.left-and-right-inner-addon input {
+    padding-right: 35px !important;
+    padding-left: 35px !important;
+}
+
+.left-and-right-inner-addon i.right {
+    position: absolute;
+    right: 0px;
+    padding: 17px 15px;
+    pointer-events: none;
+}
+
+
+.right-inner-addon-b {
+    position: relative;
+}
+.right-inner-addon-b input {
+    padding-right: 35px !important;
+}
+.right-inner-addon-b i {
+    position: absolute;
+    right: 0px;
+    padding: 17px 15px;
+    pointer-events: none;
+}
+
+input {
+    width: 100%;
+		padding: 1em !important;
+		margin: 0em !important;
+		box-sizing: border-box;
+}
+</style>
