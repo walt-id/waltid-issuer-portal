@@ -12,7 +12,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/png', href: '/favicon.png' }
     ]
   },
 
@@ -26,7 +26,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/bootstrap'
+    '@/plugins/bootstrap',
+    '@/plugins/bootstrap-script'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -92,6 +93,6 @@ export default {
 
   ssr: false,
   server: {
-    port: 5000
+    port: 8000
   }
 }
