@@ -81,8 +81,7 @@
               Claim credentials
             </h1>
             <p class="lead text-muted fw-normal">
-              Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so
-              folks don’t simply skip over it entirely.
+              On this page a "holder" (receiver of credential) can claim one or more credentials and start the issuing-process. For the sake of the demo, the data can directly be altered below.
             </p>
             <p>
               <form>
@@ -172,7 +171,8 @@
                 @click="createPopupWin('/issuer-api/credentials/issuance/request?walletId='+wallets[0].id+'&'+getSelectedCredentialsParams(), wallets[0].description, 500, 700)"
               >Issue to {{ wallets[0].id }} - POPUP</a>-->
               <br><br>
-              <button @click="goToWallet(wallets[0].id)" class="btn btn-primary my-2">Issue to {{ wallets[0].id }}</button>
+<!--              <button @click="goToWallet(wallets[0].id)" class="btn btn-primary my-2">Issue to {{ wallets[0].id }}</button>-->
+              <button @click="goToWallet(wallets[0].id)" class="btn btn-primary my-2">Issue to web-wallet</button>
             </p>
           </div>
         </div>
@@ -239,7 +239,7 @@ export default {
     position: relative;
 }
 .left-inner-addon input {
-    padding-left: 35px !important; 
+    padding-left: 35px !important;
 }
 .left-inner-addon i {
     position: absolute;

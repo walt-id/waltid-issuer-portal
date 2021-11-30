@@ -2,8 +2,9 @@
   <section class="text-center login-body">
     <main class="form-signin">
      <form form action="" id="login-form" class="my-4" @submit.prevent="login">
-      <img class="mb-4" src="https://static.intercomassets.com/avatars/5059525/square_128/custom_avatar-1628056261.png?1628056261" alt="" width="72">
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <img class="mb-4" src="https://static.intercomassets.com/avatars/5059525/square_128/custom_avatar-1628056261.png?1628056261" alt="" width="72">
+      <h1 class="h3 mb-3 fw-normal">Please sign in to the <b>Demo Issuer Portal</b></h1>
+      <br />
       <div class="form-floating">
         <input
           type="email"
@@ -12,8 +13,8 @@
           autocomplete="off"
           name="email"
           v-model="email"
-          placeholder="E-mail"/>
-        <label for="floatingInput">Email address</label>
+          placeholder="E-mail address"/>
+        <label for="floatingInput">E-mail address</label>
       </div>
       <div class="form-floating">
         <input
@@ -32,7 +33,7 @@
        </label>
       </div>
       <button class="w-100 btn btn-lg btn-primary _animation-fade" button type="submit" name="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+      <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
      </form>
     </main>
   </section>
