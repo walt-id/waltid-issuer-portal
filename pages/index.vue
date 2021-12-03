@@ -125,14 +125,12 @@
                 <div class="row _forms">
                   <div class="col">
                     <div class="right-inner-addon input-container">
-                      <i class="bi bi-map"></i>
-                      <input type="text" class="form-control" placeholder="Place of birth" aria-label="Place of birth" v-model="userData.placeOfBirth">
+                      <input type="text" class="form-control" placeholder="Vaccine or Prohylaxis" aria-label="Vaccine or Prohylaxis" v-model="userData.vaccineOrProphylaxis">
                     </div>
                   </div>
                   <div class="col">
                     <div class="right-inner-addon input-container">
-                      <i class="bi bi-geo-alt"></i>
-                      <input type="text" class="form-control" placeholder="Address" aria-label="Address" v-model="userData.currentAddress">
+                      <input type="text" class="form-control" placeholder="Vaccine Medicinal Product" aria-label="Vaccine Medicinal Product" v-model="userData.vaccineMedicinalProduct">
                     </div>
                   </div>
                 </div>
@@ -140,24 +138,29 @@
                 <div class="row _forms">
                   <div class="col">
                     <div class="right-inner-addon input-container">
-                      <input type="text" class="form-control" placeholder="ECTS Credit Points" aria-label="ECTS Credit Points" v-model="userData.ectsCreditPoints">
+                      <input type="text" class="form-control" placeholder="Dose Number" aria-label="Dose Number" v-model="userData.doseNumber">
                     </div>
                   </div>
                   <div class="col">
                     <div class="right-inner-addon input-container">
-                      <input type="text" class="form-control" placeholder="EQF Level" aria-label="EQF Level" v-model="userData.eqfLevel">
+                      <input type="text" class="form-control" placeholder="Total Series Of Doses" aria-label="Total Series Of Doses" v-model="userData.totalSeriesOfDoses">
                     </div>
                   </div>
                 </div>
                 <div class="row _forms">
                   <div class="col">
                     <div class="right-inner-addon input-container">
-                      <input type="text" class="form-control" placeholder="ISCEDF Code" aria-label="ISCEDF Code" v-model="userData.iscedfCode">
+                      <input type="text" class="form-control" placeholder="Date Of Vaccination" aria-label="Date Of Vaccination" v-model="userData.dateOfVaccination">
                     </div>
                   </div>
                   <div class="col">
                     <div class="right-inner-addon input-container">
-                      <input type="text" class="form-control" placeholder="NQF Level" aria-label="NQF Level" v-model="userData.nqfLevel">
+                      <input type="text" class="form-control" placeholder="Administering Centre" aria-label="Administering Centre" v-model="userData.administeringCentre">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="right-inner-addon input-container">
+                      <input type="text" class="form-control" placeholder="Country Of Vaccination" aria-label="Country Of Vaccination" v-model="userData.countryOfVaccination">
                     </div>
                   </div>
                 </div>
@@ -195,12 +198,13 @@ export default {
         familyName: '',
         dateOfBirth: '',
         gender: 'MALE',
-        placeOfBirth: 'Vienna',
-        currentAddress: 'Stefansplatz 1, 1010 Wien, Austria',
-        ectsCreditPoints: '',
-        eqfLevel: '',
-        iscedfCode: '',
-        nqfLevel: ''
+        vaccineOrProphylaxis: '1119349007 COVID-19 example vaccine',
+        vaccineMedicinalProduct: 'VACCINE concentrate for dispersion for injection',
+        doseNumber: '',
+        totalSeriesOfDoses: '',
+        dateOfVaccination: new Date().toISOString().substr(0, 10),
+        administeringCentre: '',
+        countryOfVaccination: 'DE'
       }
     }
   },
