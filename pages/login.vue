@@ -3,7 +3,7 @@
     <main class="form-signin">
      <form form action="" id="login-form" class="my-4" @submit.prevent="login">
     <img class="mb-4" src="https://static.intercomassets.com/avatars/5059525/square_128/custom_avatar-1628056261.png?1628056261" alt="" width="72">
-      <h1 class="h3 mb-3 fw-normal">Please sign in to the <b>Demo Issuer Portal</b></h1>
+      <h1 class="h3 mb-3 fw-normal">Please sign in to the <b>National Health Care Portal</b> in order to receive your <b>Vaccination Certificate</b></h1>
       <br />
       <div class="form-floating">
         <input

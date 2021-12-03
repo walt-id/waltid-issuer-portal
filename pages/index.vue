@@ -78,7 +78,7 @@
         <div class="row py-lg-5">
           <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-normal">
-              Claim credentials
+              Claim Vaccination Credential
             </h1>
             <p class="lead text-muted fw-normal">
               On this page a "holder" (receiver of credential) can claim one or more credentials and start the issuing-process. For the sake of the demo, the data can directly be altered below.
