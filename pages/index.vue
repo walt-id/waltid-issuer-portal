@@ -177,7 +177,7 @@
       </section>
     </main>
 
-    <footer class="footer mt-auto py-3 bg-light">
+    <footer class="fixed-bottom footer mt-auto py-3 bg-light">
       <div class="container">
         <span class="text-muted">&#169; 2021 by walt.id </span>
       </div>
