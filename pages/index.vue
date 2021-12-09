@@ -80,98 +80,76 @@
             <h1 class="fw-normal">
               Claim credentials
             </h1>
-            <p class="lead text-muted fw-normal">
-              On this page a "holder" (receiver of credential) can claim one or more credentials and start the issuing-process. For the sake of the demo, the data can directly be altered below.
+            <p class="lead text-muted fw-normal mb-4">
+              Select the credential you want to get issued
             </p>
               <form>
-                <div v-for="issuable in issuableCredentials" :key="issuable.id" class="row">
-                  <input
-                    type="checkbox"
-                    :id="'issuable-' + issuable.id"
-                    :name="'issuable-' + issuable.id"
-                    :value="issuable.id"
-                    v-model="checkedCredentials"
-                    checked />
-                  <label :for="'issuable-' + issuable.id">{{issuable.type}} | {{issuable.description}}</label>
-                </div>
-                <div class="row _forms">
-                  <div class="col">
-                    <div class="right-inner-addon input-container">
-                      <i class="bi bi-card-text"></i>
-                      <input type="text" class="form-control" placeholder="First name" aria-label="First name" v-model="userData.firstName">
-                    </div>
+                <div class="d-flex flex-column justify-content-center align-items-center text-start">
+                  <div class="form-check col-md-5 col-sm-6 mb-3">
+                    <input class="form-check-input me-4" type="checkbox" value="" id="passport">
+                    <label class="form-check-label">Passport | <button type="button" data-bs-toggle="modal" data-bs-target="#credentilModal" class="text-primary">View details</button></label>
                   </div>
-                  <div class="col">
-                    <div class="right-inner-addon input-container">
-                      <i class="bi bi-card-text"></i>
-                      <input type="text" class="form-control" placeholder="Family name" aria-label="Family name" v-model="userData.familyName">
-                    </div>
+                  <div class="form-check col-md-5 col-sm-6 mb-3">
+                    <input class="form-check-input me-4" type="checkbox" value="" id="diploma">
+                    <label class="form-check-label">Diploma | <button type="button" data-bs-toggle="modal" data-bs-target="#credentilModal" class="text-primary">View details</button></label>
                   </div>
-                </div>
-                <div class="row _forms">
-                  <div class="col">
-                    <div class="right-inner-addon input-container">
-                      <i class="bi bi-calendar"></i>
-                      <input type="text" class="form-control" placeholder="Date of birth" aria-label="Date of birth" v-model="userData.dateOfBirth">
-                    </div>
+                  <div class="form-check col-md-5 col-sm-6 mb-5">
+                    <input class="form-check-input me-4" type="checkbox" value="" id="stid">
+                    <label class="form-check-label">Student ID | <button type="button" data-bs-toggle="modal" data-bs-target="#credentilModal" class="text-primary">View details</button></label>
                   </div>
-                  <div class="col">
-                    <div class="right-inner-addon input-container">
-                      <i class="bi bi-people"></i>
-                      <input type="text" class="form-control" placeholder="Gender" aria-label="Gender" v-model="userData.gender">
-                    </div>
-                  </div>
-                </div>
-                <div class="row _forms">
-                  <div class="col">
-                    <div class="right-inner-addon input-container">
-                      <i class="bi bi-map"></i>
-                      <input type="text" class="form-control" placeholder="Place of birth" aria-label="Place of birth" v-model="userData.placeOfBirth">
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="right-inner-addon input-container">
-                      <i class="bi bi-geo-alt"></i>
-                      <input type="text" class="form-control" placeholder="Address" aria-label="Address" v-model="userData.currentAddress">
-                    </div>
-                  </div>
-                </div>
-                <hr />
-                <div class="row _forms">
-                  <div class="col">
-                    <div class="right-inner-addon input-container">
-                      <input type="text" class="form-control" placeholder="ECTS Credit Points" aria-label="ECTS Credit Points" v-model="userData.ectsCreditPoints">
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="right-inner-addon input-container">
-                      <input type="text" class="form-control" placeholder="EQF Level" aria-label="EQF Level" v-model="userData.eqfLevel">
-                    </div>
-                  </div>
-                </div>
-                <div class="row _forms">
-                  <div class="col">
-                    <div class="right-inner-addon input-container">
-                      <input type="text" class="form-control" placeholder="ISCEDF Code" aria-label="ISCEDF Code" v-model="userData.iscedfCode">
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="right-inner-addon input-container">
-                      <input type="text" class="form-control" placeholder="NQF Level" aria-label="NQF Level" v-model="userData.nqfLevel">
-                    </div>
-                  </div>
+                  <button @click="goToWallet(wallets[0].id)" class="btn btn-primary py-2 px-5">Confirm</button>
                 </div>
               </form>
-            <p>
-              <!--<a
-                href="#"
-                class="btn btn-primary my-2"
-                @click="createPopupWin('/issuer-api/credentials/issuance/request?walletId='+wallets[0].id+'&'+getSelectedCredentialsParams(), wallets[0].description, 500, 700)"
-              >Issue to {{ wallets[0].id }} - POPUP</a>-->
-              <br><br>
-<!--              <button @click="goToWallet(wallets[0].id)" class="btn btn-primary my-2">Issue to {{ wallets[0].id }}</button>-->
-              <button @click="goToWallet(wallets[0].id)" class="btn btn-primary my-2">Issue to web-wallet</button>
-            </p>
+              <!-- Credendtial Modal -->
+              <div class="modal fade" id="credentilModal" tabindex="-1" aria-labelledby="credentilModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">View Credential</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row _forms mb-3">
+                          <div class="col-9">
+                            <div class="right-inner-addon input-container">
+                              <i class="bi bi-card-text"></i>
+                              <input :disabled="inputIndex === 0 ? false : true" type="text" :class="inputIndex === 0 ? 'form-control border-primary' : 'form-control'" placeholder="First name" aria-label="First name" v-model="userData.firstName">
+                            </div>
+                          </div>
+                          <div class="col-3 _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
+                            <a @click="enableInput(0)" href="#enable" class="p-0 text-primary fst-italic">Edite as issuer</a>
+                          </div>
+                        </div>
+                        <div class="row _forms mb-3">
+                          <div class="col-9">
+                            <div class="right-inner-addon input-container">
+                              <i class="bi bi-card-text"></i>
+                              <input :disabled="inputIndex === 1 ? false : true" type="text" :class="inputIndex === 1 ? 'form-control border-primary' : 'form-control'" placeholder="Last name" aria-label="Last name" v-model="userData.lastName">
+                            </div>
+                          </div>
+                          <div class="col-3 _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
+                            <a @click="enableInput(1)" href="#enable" class="p-0 text-primary fst-italic">Edite as issuer</a>
+                          </div>
+                        </div>
+                        <div class="row _forms mb-3">
+                          <div class="col-9">
+                            <div class="right-inner-addon input-container">
+                              <i class="bi bi-card-text"></i>
+                              <input :disabled="inputIndex === 2 ? false : true" type="text" :class="inputIndex === 2 ? 'form-control border-primary' : 'form-control'" placeholder="..." aria-label="...">
+                            </div>
+                          </div>
+                          <div class="col-3 _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
+                            <a @click="enableInput(2)" href="#enable" class="p-0 text-primary fst-italic">Edite as issuer</a>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button :disabled="btnDisabled" type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
       </section>
@@ -201,37 +179,36 @@ export default {
         eqfLevel: '',
         iscedfCode: '',
         nqfLevel: ''
-      }
+      },
+      inputIndex: null,
+      btnDisabled: true,
     }
   },
-  async asyncData ({ $axios }) {
+  /*async asyncData ({ $axios }) {
     const wallets = await $axios.$get('/issuer-api/wallets/list')
     const issuableCredentials = await $axios.$get('/issuer-api/credentials/listIssuables')
     return { wallets, issuableCredentials }
-  },
+  },*/
   methods: {
-    createPopupWin (pageURL, pageTitle, popupWinWidth, popupWinHeight) {
-      const left = ((screen.width / 2) - (popupWinWidth / 2))
-      const top = (screen.height / 4)
-      window.open(pageURL, pageTitle, 'location=no,toolbar=no,menubar=no,scrollbars=yes,resizable=yes, width=' + popupWinWidth + ', height=' + popupWinHeight + ', top=' + top + ', left=' + left)
-    },
-    getSelectedCredentialsParams () {
-      return this.checkedCredentials.map(id => 'issuableId=' + id).join('&')
-    },
-    async goToWallet (walletId) {
-      const params = new URLSearchParams(this.userData)
-      this.checkedCredentials.forEach(id => params.append('issuableId', id))
-      params.append('walletId', walletId)
-      const walletUrl = await this.$axios.$get('/issuer-api/credentials/issuance/request', { params })
-      window.location = walletUrl
+    enableInput(index){
+      this.inputIndex=index;
+      this.btnDisabled=false;
     }
   }
 }
 </script>
 
 <style scoped>
-.input-container {
-	padding-bottom: 1em;
+label{
+  font-size: 20px;
+  margin-top: -3px;
+  font-weight: 600;
+}
+label button{
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 .left-inner-addon {
     position: relative;
@@ -287,11 +264,14 @@ export default {
     padding: 17px 15px;
     pointer-events: none;
 }
-
-input {
+._forms input {
     width: 100%;
 		padding: 1em !important;
 		margin: 0em !important;
 		box-sizing: border-box;
+}
+._edit-btn button{
+  background-color: transparent;
+  border: none;
 }
 </style>
