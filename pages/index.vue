@@ -85,17 +85,10 @@
             </p>
               <form>
                 <div class="d-flex flex-column justify-content-center align-items-center text-start">
-                  <div class="form-check col-md-5 col-sm-6 mb-3">
-                    <input class="form-check-input me-4" type="checkbox" value="" id="passport">
-                    <label class="form-check-label">Passport | <button type="button" data-bs-toggle="modal" data-bs-target="#credentilModal" class="text-primary">View details</button></label>
-                  </div>
-                  <div class="form-check col-md-5 col-sm-6 mb-3">
-                    <input class="form-check-input me-4" type="checkbox" value="" id="diploma">
-                    <label class="form-check-label">Diploma | <button type="button" data-bs-toggle="modal" data-bs-target="#credentilModal" class="text-primary">View details</button></label>
-                  </div>
-                  <div class="form-check col-md-5 col-sm-6 mb-5">
-                    <input class="form-check-input me-4" type="checkbox" value="" id="stid">
-                    <label class="form-check-label">Student ID | <button type="button" data-bs-toggle="modal" data-bs-target="#credentilModal" class="text-primary">View details</button></label>
+                  <div class="form-check col-md-9 col-sm-12 mb-3" v-for="issuable in issuableCredentials" :key="issuable.id">
+                    <input class="form-check-input me-4" type="checkbox" :id="'issuable-' + issuable.id" :name="'issuable-' + issuable.id" :value="issuable.id" v-model="checkedCredentials">
+                    <label class="form-check-label">{{/*issuable.type*/}}{{issuable.description}} |</label>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#credentilModal" class="text-primary _view-btn">View details</button>
                   </div>
                   <button @click="goToWallet(wallets[0].id)" class="btn btn-primary py-2 px-5">Confirm</button>
                 </div>
@@ -106,7 +99,6 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLabel">View Credential</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row _forms mb-3">
@@ -144,8 +136,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button :disabled="btnDisabled" type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="reset">Close</button>
                     </div>
                   </div>
                 </div>
@@ -184,12 +175,17 @@ export default {
       btnDisabled: true,
     }
   },
-  /*async asyncData ({ $axios }) {
+  async asyncData ({ $axios }) {
     const wallets = await $axios.$get('/issuer-api/wallets/list')
     const issuableCredentials = await $axios.$get('/issuer-api/credentials/listIssuables')
     return { wallets, issuableCredentials }
-  },*/
+  },
+  
   methods: {
+    reset(){
+      this.inputIndex=null
+      console.log(this.issuableCredentials[0])
+    },
     enableInput(index){
       this.inputIndex=index;
       this.btnDisabled=false;
@@ -204,11 +200,13 @@ label{
   margin-top: -3px;
   font-weight: 600;
 }
-label button{
+button._view-btn{
   background-color: transparent;
   border: none;
   padding: 0;
   margin: 0;
+  font-size: 18px;
+  font-weight: 600;
 }
 .left-inner-addon {
     position: relative;
