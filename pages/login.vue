@@ -33,7 +33,11 @@
        </label>
       </div>
       <button class="w-100 btn btn-lg btn-primary _animation-fade" button type="submit" name="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
+      <p class="mt-5 mb-3 text-muted">&copy; 2021 <a
+            href="#"
+            v-for="locale in availableLocales"
+            :key="locale.code"
+            @click.prevent.stop="$i18n.setLocale(locale.code)">{{ locale.code }} | </a></p>
      </form>
     </main>
   </section>
@@ -47,6 +51,12 @@ export default {
       email: "",
       password: "",
       error: null
+    }
+  },
+  computed: {
+    availableLocales () {
+      console.log("locales", this.$i18n.locales)
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
     }
   },
   methods: {
