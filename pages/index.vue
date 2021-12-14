@@ -356,7 +356,7 @@
                   </div>
                 </div>
               </div>
-              <div class="modal fade" id="credentilModalVerifiableProofOfResidence" tabindex="-1" aria-labelledby="credentilModalVerifiableVaccinationCertificateLabel" aria-hidden="true">
+              <div class="modal fade" id="credentilModalProofOfResidence" tabindex="-1" aria-labelledby="credentilModalVerifiableVaccinationCertificateLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -367,7 +367,7 @@
                           <div class="col-11">
                             <div class="right-inner-addon input-container">
                               <i class="bi bi-card-text"></i>
-                              <input :disabled="inputIndex === 0 ? false : true" type="text" :class="inputIndex === 0 ? 'form-control border-primary' : 'form-control'" placeholder="Family name" aria-label="familyName" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.familyName">
+                              <input :disabled="inputIndex === 0 ? false : true" type="text" :class="inputIndex === 0 ? 'form-control border-primary' : 'form-control'" placeholder="Family name" aria-label="familyName" v-model="issuables.credentials.ProofOfResidence.credentialData.credentialSubject.familyName">
                             </div>
                           </div>
                           <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
@@ -378,7 +378,7 @@
                           <div class="col-11">
                             <div class="right-inner-addon input-container">
                               <i class="bi bi-card-text"></i>
-                              <input :disabled="inputIndex === 1 ? false : true" type="text" :class="inputIndex === 1 ? 'form-control border-primary' : 'form-control'" placeholder="First name" aria-label="firstName" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.firstName">
+                              <input :disabled="inputIndex === 1 ? false : true" type="text" :class="inputIndex === 1 ? 'form-control border-primary' : 'form-control'" placeholder="First name" aria-label="firstName" v-model="issuables.credentials.ProofOfResidence.credentialData.credentialSubject.firstNames">
                             </div>
                           </div>
                           <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
@@ -389,7 +389,7 @@
                           <div class="col-11">
                             <div class="right-inner-addon input-container">
                               <i class="bi bi-people"></i>
-                              <input :disabled="inputIndex ===2 ? false : true" type="text" :class="inputIndex === 2 ? 'form-control border-primary' : 'form-control'" placeholder="Gender" aria-label="Gender" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.gender">
+                              <input :disabled="inputIndex ===2 ? false : true" type="text" :class="inputIndex === 2 ? 'form-control border-primary' : 'form-control'" placeholder="Gender" aria-label="Gender" v-model="issuables.credentials.ProofOfResidence.credentialData.credentialSubject.gender">
                             </div>
                           </div>
                           <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
@@ -400,7 +400,7 @@
                           <div class="col-11">
                             <div class="right-inner-addon input-container">
                               <i class="bi bi-calendar2-event"></i>
-                              <input :disabled="inputIndex === 3 ? false : true" type="text" :class="inputIndex === 3 ? 'form-control border-primary' : 'form-control'" placeholder="Date Of Birth" aria-label="DateOfBirth" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.dateOfBirth">
+                              <input :disabled="inputIndex === 3 ? false : true" type="text" :class="inputIndex === 3 ? 'form-control border-primary' : 'form-control'" placeholder="Date Of Birth" aria-label="DateOfBirth" v-model="issuables.credentials.ProofOfResidence.credentialData.credentialSubject.dateOfBirth">
                             </div>
                           </div>
                           <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
@@ -411,7 +411,7 @@
                           <div class="col-11">
                             <div class="right-inner-addon input-container">
                               <i class="bi bi-calendar2-event"></i>
-                              <input :disabled="inputIndex === 4 ? false : true" type="text" :class="inputIndex === 4 ? 'form-control border-primary' : 'form-control'" placeholder="Street address" aria-label="streetAddress" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.adress.streetAddress">
+                              <input :disabled="inputIndex === 4 ? false : true" type="text" :class="inputIndex === 4 ? 'form-control border-primary' : 'form-control'" placeholder="Street address" aria-label="streetAddress" v-model="issuables.credentials.ProofOfResidence.credentialData.credentialSubject.address.streetAddress">
                             </div>
                           </div>
                           <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
@@ -422,7 +422,7 @@
                           <div class="col-11">
                             <div class="right-inner-addon input-container">
                               <i class="bi bi-calendar2-event"></i>
-                              <input :disabled="inputIndex === 5 ? false : true" type="text" :class="inputIndex === 5 ? 'form-control border-primary' : 'form-control'" placeholder="Postal code" aria-label="postalCode" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.adress.postalCode">
+                              <input :disabled="inputIndex === 5 ? false : true" type="text" :class="inputIndex === 5 ? 'form-control border-primary' : 'form-control'" placeholder="Postal code" aria-label="postalCode" v-model="issuables.credentials.ProofOfResidence.credentialData.credentialSubject.address.postalCode">
                             </div>
                           </div>
                           <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
@@ -433,7 +433,7 @@
                           <div class="col-11">
                             <div class="right-inner-addon input-container">
                               <i class="bi bi-calendar2-event"></i>
-                              <input :disabled="inputIndex === 6 ? false : true" type="text" :class="inputIndex === 6 ? 'form-control border-primary' : 'form-control'" placeholder="Locality" aria-label="locality" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.adress.locality">
+                              <input :disabled="inputIndex === 6 ? false : true" type="text" :class="inputIndex === 6 ? 'form-control border-primary' : 'form-control'" placeholder="Locality" aria-label="locality" v-model="issuables.credentials.ProofOfResidence.credentialData.credentialSubject.address.locality">
                             </div>
                           </div>
                           <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
@@ -444,7 +444,7 @@
                           <div class="col-11">
                             <div class="right-inner-addon input-container">
                               <i class="bi bi-calendar2-event"></i>
-                              <input :disabled="inputIndex === 7 ? false : true" type="text" :class="inputIndex === 7 ? 'form-control border-primary' : 'form-control'" placeholder="Country" aria-label="countryName" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.adress.countryName">
+                              <input :disabled="inputIndex === 7 ? false : true" type="text" :class="inputIndex === 7 ? 'form-control border-primary' : 'form-control'" placeholder="Country" aria-label="countryName" v-model="issuables.credentials.ProofOfResidence.credentialData.credentialSubject.address.countryName">
                             </div>
                           </div>
                           <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
@@ -455,7 +455,7 @@
                           <div class="col-11">
                             <div class="right-inner-addon input-container">
                               <i class="bi bi-calendar2-event"></i>
-                              <input :disabled="inputIndex === 8 ? false : true" type="text" :class="inputIndex === 8 ? 'form-control border-primary' : 'form-control'" placeholder="Family status" aria-label="familyStatus" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.familyStatus">
+                              <input :disabled="inputIndex === 8 ? false : true" type="text" :class="inputIndex === 8 ? 'form-control border-primary' : 'form-control'" placeholder="Family status" aria-label="familyStatus" v-model="issuables.credentials.ProofOfResidence.credentialData.credentialSubject.familyStatus">
                             </div>
                           </div>
                           <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
@@ -466,7 +466,7 @@
                           <div class="col-11">
                             <div class="right-inner-addon input-container">
                               <i class="bi bi-calendar2-event"></i>
-                              <input :disabled="inputIndex === 9 ? false : true" type="text" :class="inputIndex === 9 ? 'form-control border-primary' : 'form-control'" placeholder="Identification number" aria-label="identificationNumber" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.identificationNumber">
+                              <input :disabled="inputIndex === 9 ? false : true" type="text" :class="inputIndex === 9 ? 'form-control border-primary' : 'form-control'" placeholder="Identification number" aria-label="identificationNumber" v-model="issuables.credentials.ProofOfResidence.credentialData.credentialSubject.identificationNumber">
                             </div>
                           </div>
                           <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
@@ -477,7 +477,7 @@
                           <div class="col-11">
                             <div class="right-inner-addon input-container">
                               <i class="bi bi-calendar2-event"></i>
-                              <input :disabled="inputIndex === 10 ? false : true" type="text" :class="inputIndex === 10 ? 'form-control border-primary' : 'form-control'" placeholder="Nationality" aria-label="nationality" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.nationality">
+                              <input :disabled="inputIndex === 10 ? false : true" type="text" :class="inputIndex === 10 ? 'form-control border-primary' : 'form-control'" placeholder="Nationality" aria-label="nationality" v-model="issuables.credentials.ProofOfResidence.credentialData.credentialSubject.nationality">
                             </div>
                           </div>
                           <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
@@ -514,10 +514,10 @@ export default {
   },
   async asyncData ({ $axios }) {
     const wallets = await $axios.$get('/issuer-api/wallets/list')
-    const issuables = await $axios.$get('/issuer-api/credentials/listIssuables')                               
+    const issuables = await $axios.$get('/issuer-api/credentials/listIssuables')
     return { wallets, issuables }
   },
-  
+
   methods: {
     reset(){
       this.inputIndex=null
