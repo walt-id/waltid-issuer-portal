@@ -66,7 +66,7 @@
             :key="locale.code"
             @click.prevent.stop="$i18n.setLocale(locale.code)">{{ locale.code }} | </a>
 
-            
+
           <button
             class="navbar-toggler"
             type="button"
@@ -98,7 +98,7 @@
                   <div class="form-check col-md-9 col-sm-12 mb-3" v-for="(issuable, key) in issuables.credentials" :key="key">
                     <input class="form-check-input me-4" type="checkbox" :id="'issuable-' + key" :name="'issuable-' + key" :value="key" v-model="checkedCredentials">
                     <label class="form-check-label">{{/*issuable.type*/}}{{$t(issuable.type)}} |</label>
-                    <button type="button" data-bs-toggle="modal" :data-bs-target="'#credentilModal'+key" class="text-primary _view-btn">{{$t('VIEW_DETAILS')}}</button>
+                    <button type="button" data-bs-toggle="modal" :data-bs-target="'#credentilModal'+key" class="text-primary _view-btn mb-2"><i class="bi bi-box-arrow-up-right p-1"></i></button>
                   </div>
                 </div>
               </form>
