@@ -58,6 +58,15 @@
 
             <strong>Issuer Portal</strong>
           </a>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+          <a
+            href="#"
+            v-for="locale in availableLocales"
+            :key="locale.code"
+            @click.prevent.stop="$i18n.setLocale(locale.code)">{{ locale.code }} | </a>
+
+            
           <button
             class="navbar-toggler"
             type="button"
@@ -69,6 +78,8 @@
           >
             <span class="navbar-toggler-icon" />
           </button>
+            </li>
+          </ul>
         </div>
       </div>
     </header>
@@ -77,10 +88,10 @@
         <div class="row py-lg-5">
           <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-normal">
-              Claim credentials
+              {{$t('CLAIM_CREDENTIALS')}}
             </h1>
             <p class="lead text-muted fw-normal mb-4">
-              Select the credential you want to get issued
+              {{$t('SELECT_CREDENTIALS_MSG')}}
             </p>
               <form>
                 <div class="d-flex flex-column align-items-md-center align-items-sm-start text-start">
@@ -512,6 +523,13 @@ export default {
       btnLoading: false
     }
   },
+  computed: {
+    availableLocales () {
+      console.log("locales", this.$i18n.locales)
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+    }
+  },
+
   async asyncData ({ $axios }) {
     const wallets = await $axios.$get('/issuer-api/wallets/list')
     const issuables = await $axios.$get('/issuer-api/credentials/listIssuables')
