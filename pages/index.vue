@@ -91,6 +91,7 @@
                   </div>
                 </div>
               </form>
+              <a href="#" @click="tester">Test API</a>
               <button @click="goToWallet(wallets[0].id)" class="btn btn-primary py-2 px-5 _cbtn" :disabled="this.checkedCredentials.length > 0 ? false : true"><img v-if="btnLoading" src="loader.gif" width="20px"/><span v-else>Confirm</span></button>
               <!--Credendtial Modal -->
               <div class="modal fade" id="credentilModalVerifiableId" tabindex="-1" aria-labelledby="credentilModalVerifiableIdLabel" aria-hidden="true">
@@ -355,6 +356,141 @@
                   </div>
                 </div>
               </div>
+              <div class="modal fade" id="credentilModalVerifiableProofOfResidence" tabindex="-1" aria-labelledby="credentilModalVerifiableVaccinationCertificateLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">View Credential</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row _forms mb-3">
+                          <div class="col-11">
+                            <div class="right-inner-addon input-container">
+                              <i class="bi bi-card-text"></i>
+                              <input :disabled="inputIndex === 0 ? false : true" type="text" :class="inputIndex === 0 ? 'form-control border-primary' : 'form-control'" placeholder="Family name" aria-label="familyName" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.familyName">
+                            </div>
+                          </div>
+                          <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
+                            <a @click="inputIndex === 0 ? disableInput(null) : enableInput(0)" href="#enable" :class="inputIndex === 0 ? 'p-0 text-success fst-italic' : 'p-0 text-primary fst-italic' "><i :class="inputIndex === 0 ? 'bi bi-check-square' : 'bi bi-pencil-square'"></i></a>
+                          </div>
+                        </div>
+                        <div class="row _forms mb-3">
+                          <div class="col-11">
+                            <div class="right-inner-addon input-container">
+                              <i class="bi bi-card-text"></i>
+                              <input :disabled="inputIndex === 1 ? false : true" type="text" :class="inputIndex === 1 ? 'form-control border-primary' : 'form-control'" placeholder="First name" aria-label="firstName" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.firstName">
+                            </div>
+                          </div>
+                          <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
+                            <a @click="inputIndex === 1 ? disableInput(null) : enableInput(1)" href="#enable" :class="inputIndex === 1 ? 'p-0 text-success fst-italic' : 'p-0 text-primary fst-italic' "><i :class="inputIndex === 1 ? 'bi bi-check-square' : 'bi bi-pencil-square'"></i></a>
+                          </div>
+                        </div>
+                        <div class="row _forms mb-3">
+                          <div class="col-11">
+                            <div class="right-inner-addon input-container">
+                              <i class="bi bi-people"></i>
+                              <input :disabled="inputIndex ===2 ? false : true" type="text" :class="inputIndex === 2 ? 'form-control border-primary' : 'form-control'" placeholder="Gender" aria-label="Gender" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.gender">
+                            </div>
+                          </div>
+                          <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
+                            <a @click="inputIndex === 2 ? disableInput(null) : enableInput(2)" href="#enable" :class="inputIndex === 2 ? 'p-0 text-success fst-italic' : 'p-0 text-primary fst-italic' "><i :class="inputIndex === 2 ? 'bi bi-check-square' : 'bi bi-pencil-square'"></i></a>
+                          </div>
+                        </div>
+                        <div class="row _forms mb-3">
+                          <div class="col-11">
+                            <div class="right-inner-addon input-container">
+                              <i class="bi bi-calendar2-event"></i>
+                              <input :disabled="inputIndex === 3 ? false : true" type="text" :class="inputIndex === 3 ? 'form-control border-primary' : 'form-control'" placeholder="Date Of Birth" aria-label="DateOfBirth" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.dateOfBirth">
+                            </div>
+                          </div>
+                          <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
+                            <a @click="inputIndex === 3 ? disableInput(null) : enableInput(3)" href="#enable" :class="inputIndex === 3 ? 'p-0 text-success fst-italic' : 'p-0 text-primary fst-italic' "><i :class="inputIndex === 3 ? 'bi bi-check-square' : 'bi bi-pencil-square'"></i></a>
+                          </div>
+                        </div>
+                        <div class="row _forms mb-3">
+                          <div class="col-11">
+                            <div class="right-inner-addon input-container">
+                              <i class="bi bi-calendar2-event"></i>
+                              <input :disabled="inputIndex === 4 ? false : true" type="text" :class="inputIndex === 4 ? 'form-control border-primary' : 'form-control'" placeholder="Street address" aria-label="streetAddress" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.adress.streetAddress">
+                            </div>
+                          </div>
+                          <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
+                            <a @click="inputIndex === 4 ? disableInput(null) : enableInput(4)" href="#enable" :class="inputIndex === 4 ? 'p-0 text-success fst-italic' : 'p-0 text-primary fst-italic' "><i :class="inputIndex === 4 ? 'bi bi-check-square' : 'bi bi-pencil-square'"></i></a>
+                          </div>
+                        </div>
+                        <div class="row _forms mb-3">
+                          <div class="col-11">
+                            <div class="right-inner-addon input-container">
+                              <i class="bi bi-calendar2-event"></i>
+                              <input :disabled="inputIndex === 5 ? false : true" type="text" :class="inputIndex === 5 ? 'form-control border-primary' : 'form-control'" placeholder="Postal code" aria-label="postalCode" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.adress.postalCode">
+                            </div>
+                          </div>
+                          <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
+                            <a @click="inputIndex === 5 ? disableInput(null) : enableInput(5)" href="#enable" :class="inputIndex === 5 ? 'p-0 text-success fst-italic' : 'p-0 text-primary fst-italic' "><i :class="inputIndex === 5 ? 'bi bi-check-square' : 'bi bi-pencil-square'"></i></a>
+                          </div>
+                        </div>
+                        <div class="row _forms mb-3">
+                          <div class="col-11">
+                            <div class="right-inner-addon input-container">
+                              <i class="bi bi-calendar2-event"></i>
+                              <input :disabled="inputIndex === 6 ? false : true" type="text" :class="inputIndex === 6 ? 'form-control border-primary' : 'form-control'" placeholder="Locality" aria-label="locality" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.adress.locality">
+                            </div>
+                          </div>
+                          <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
+                            <a @click="inputIndex === 6 ? disableInput(null) : enableInput(6)" href="#enable" :class="inputIndex === 6 ? 'p-0 text-success fst-italic' : 'p-0 text-primary fst-italic' "><i :class="inputIndex === 6 ? 'bi bi-check-square' : 'bi bi-pencil-square'"></i></a>
+                          </div>
+                        </div>
+                        <div class="row _forms mb-3">
+                          <div class="col-11">
+                            <div class="right-inner-addon input-container">
+                              <i class="bi bi-calendar2-event"></i>
+                              <input :disabled="inputIndex === 7 ? false : true" type="text" :class="inputIndex === 7 ? 'form-control border-primary' : 'form-control'" placeholder="Country" aria-label="countryName" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.adress.countryName">
+                            </div>
+                          </div>
+                          <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
+                            <a @click="inputIndex === 7 ? disableInput(null) : enableInput(7)" href="#enable" :class="inputIndex === 7 ? 'p-0 text-success fst-italic' : 'p-0 text-primary fst-italic' "><i :class="inputIndex === 7 ? 'bi bi-check-square' : 'bi bi-pencil-square'"></i></a>
+                          </div>
+                        </div>
+                        <div class="row _forms mb-3">
+                          <div class="col-11">
+                            <div class="right-inner-addon input-container">
+                              <i class="bi bi-calendar2-event"></i>
+                              <input :disabled="inputIndex === 8 ? false : true" type="text" :class="inputIndex === 8 ? 'form-control border-primary' : 'form-control'" placeholder="Family status" aria-label="familyStatus" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.familyStatus">
+                            </div>
+                          </div>
+                          <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
+                            <a @click="inputIndex === 8 ? disableInput(null) : enableInput(8)" href="#enable" :class="inputIndex === 8 ? 'p-0 text-success fst-italic' : 'p-0 text-primary fst-italic' "><i :class="inputIndex === 8 ? 'bi bi-check-square' : 'bi bi-pencil-square'"></i></a>
+                          </div>
+                        </div>
+                        <div class="row _forms mb-3">
+                          <div class="col-11">
+                            <div class="right-inner-addon input-container">
+                              <i class="bi bi-calendar2-event"></i>
+                              <input :disabled="inputIndex === 9 ? false : true" type="text" :class="inputIndex === 9 ? 'form-control border-primary' : 'form-control'" placeholder="Identification number" aria-label="identificationNumber" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.identificationNumber">
+                            </div>
+                          </div>
+                          <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
+                            <a @click="inputIndex === 9 ? disableInput(null) : enableInput(9)" href="#enable" :class="inputIndex === 9 ? 'p-0 text-success fst-italic' : 'p-0 text-primary fst-italic' "><i :class="inputIndex === 9 ? 'bi bi-check-square' : 'bi bi-pencil-square'"></i></a>
+                          </div>
+                        </div>
+                        <div class="row _forms mb-3">
+                          <div class="col-11">
+                            <div class="right-inner-addon input-container">
+                              <i class="bi bi-calendar2-event"></i>
+                              <input :disabled="inputIndex === 10 ? false : true" type="text" :class="inputIndex === 10 ? 'form-control border-primary' : 'form-control'" placeholder="Nationality" aria-label="nationality" v-model="issuables.credentials.VerifiableProofOfResidence.credentialData.credentialSubject.nationality">
+                            </div>
+                          </div>
+                          <div class="col _edit-btn d-flex flex-column align-items-center justify-content-center text-start">
+                            <a @click="inputIndex === 10 ? disableInput(null) : enableInput(10)" href="#enable" :class="inputIndex === 10 ? 'p-0 text-success fst-italic' : 'p-0 text-primary fst-italic' "><i :class="inputIndex === 10 ? 'bi bi-check-square' : 'bi bi-pencil-square'"></i></a>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="reset">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
       </section>
@@ -406,7 +542,7 @@ export default {
       setTimeout(()=>{window.location = walletUrl}, 2000)
     },
     tester(){
-      console.warn(this.checkedCredentials)
+      console.warn(this.issuables.credentials)
     }
   }
 }
