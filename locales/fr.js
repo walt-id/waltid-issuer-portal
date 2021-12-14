@@ -10,7 +10,7 @@ export default {
     VerifiableId: 'Document d\'identification vérifiable',
     VerifiableDiploma: 'Diplôme universitaire vérifiable',
     VerifiableVaccinationCertificate: 'Certificat de vaccination vérifiable',
-    ProofOfResidence: 'Justificatif de domicile',
+    ProofOfResidence: 'Certificat de Résidence',
     VIEW_DETAILS: 'Voir les détails',
     EDIT_CREDENTIAL: 'Modifier les données d\'identification',
     CLOSE: 'Fermer',
