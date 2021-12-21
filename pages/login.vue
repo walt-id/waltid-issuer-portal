@@ -2,8 +2,8 @@
   <section class="text-center login-body">
     <main class="form-signin">
      <form form action="" id="login-form" class="my-4" @submit.prevent="login">
-    <img class="mb-4" src="../assets/myguichet.png" alt="" width="221">
-      <h1 class="h3 mb-3 fw-normal">{{$t('SIGN_IN_MSG', { msg: 'MyGuichet' })}}</h1>
+      <img class="mb-4" src="https://static.intercomassets.com/avatars/5059525/square_128/custom_avatar-1628056261.png?1628056261" alt="" width="72">
+      <h1 class="h3 mb-3 fw-normal">Please sign in to the <b>Demo Issuer Portal</b></h1>
       <br />
       <div class="form-floating">
         <input
@@ -32,12 +32,11 @@
          <input type="checkbox" value="remember-me"> {{$t('REMEMBER_ME')}}
        </label>
       </div>
-      <button class="w-100 btn btn-lg btn-primary _animation-fade" button type="submit" name="submit">{{$t('SIGN_IN')}}</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2021 <a
-            href="#"
-            v-for="locale in availableLocales"
-            :key="locale.code"
-            @click.prevent.stop="$i18n.setLocale(locale.code)">{{ locale.code }} | </a></p>
+      <button class="mb-3 w-100 btn btn-lg btn-primary _animation-fade" button type="submit" name="submit">{{$t('SIGN_IN')}}</button>
+      <a href="#" v-for="locale in availableLocales" :key="locale.code" @click.prevent.stop="$i18n.setLocale(locale.code)">
+        <img :src="locale.flag" width="20px" height="15px" :alt="locale.iso" class="me-2 border border-white" />
+      </a>
+      <p class="mt-3 mb-3 text-muted">&copy; 2021 walt.id </p>
      </form>
     </main>
   </section>

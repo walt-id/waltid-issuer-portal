@@ -44,40 +44,17 @@
             <!--          <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>-->
             <!--          <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>-->
             <!--        </svg>-->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="26"
-              height="26"
-              fill="currentColor"
-              class="bi bi-check2-square"
-              viewBox="0 0 16 16"
-            >
-              <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z" />
-              <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
-            </svg>
-
-            <strong>MyGuichet</strong>
+            <img class="me-3" src="/waltid-white-logo.png" alt="" width="50px">
+            <strong>walt.id</strong>
           </a>
           <ul class="nav navbar-nav navbar-right">
             <li>
-          <a
-            href="#"
-            v-for="locale in availableLocales"
-            :key="locale.code"
-            @click.prevent.stop="$i18n.setLocale(locale.code)">{{ locale.code }} | </a>
-
-
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarHeader"
-            aria-controls="navbarHeader"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon" />
-          </button>
+              <a href="#" v-for="locale in availableLocales" :key="locale.code" @click.prevent.stop="$i18n.setLocale(locale.code)">
+                <img :src="locale.flag" width="20px" height="15px" :alt="locale.iso" class="me-2 border border-white" />
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" />
+              </button>
             </li>
           </ul>
         </div>
@@ -528,13 +505,11 @@ export default {
       return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
     }
   },
-
   async asyncData ({ $axios }) {
     const wallets = await $axios.$get('/issuer-api/wallets/list')
     const issuables = await $axios.$get('/issuer-api/credentials/listIssuables')
     return { wallets, issuables }
   },
-
   methods: {
     reset(){
       this.inputIndex=null
@@ -590,8 +565,6 @@ button._view-btn{
     padding: 17px 15px;
     pointer-events: none;
 }
-
-
 .right-inner-addon {
     position: relative;
 }
@@ -604,7 +577,6 @@ button._view-btn{
     padding: 17px 15px;
     pointer-events: none;
 }
-
 .left-and-right-inner-addon {
     position: relative;
 }
@@ -612,15 +584,12 @@ button._view-btn{
     padding-right: 35px !important;
     padding-left: 35px !important;
 }
-
 .left-and-right-inner-addon i.right {
     position: absolute;
     right: 0px;
     padding: 17px 15px;
     pointer-events: none;
 }
-
-
 .right-inner-addon-b {
     position: relative;
 }
