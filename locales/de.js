@@ -11,11 +11,13 @@ export default {
     VerifiableDiploma: 'Verifizierbares Universitätsdiplom',
     VerifiableVaccinationCertificate: 'Verifizierbares Impfzertifikat',
     ProofOfResidence: 'Nachweis des Wohnsitzes',
+    ParticipantCredential: "Gaia-X Mitgliedschafts Zertifikat",
     VIEW_DETAILS: 'Details ansehen',
     EDIT_CREDENTIAL: 'Credential Daten editieren',
     CLOSE: 'Schließen',
     CONFIRM: 'Bestätigen',
     CREDENTIAL: {
+        ID: 'Id',
         TITLE: 'Titel',
         ISSUER: 'Aussteller',
         STATUS: 'Status',
@@ -43,6 +45,9 @@ export default {
         DOSE_NUMBER: 'Dosis Anzahl',
         DATE_OF_VACCINATION: 'Datum der Impfung',
         ADMINISTERING_CENTER: 'Impfzentrum',
-        COUNTRY_OF_VACCINATION: 'Land der Impfung'
+        COUNTRY_OF_VACCINATION: 'Land der Impfung',
+        PROGRAM_NAME: 'Programm Name',
+        ETH_ADDRESS: 'ETH Address',
+        DOMAIN: 'Domain'
     }
 }
