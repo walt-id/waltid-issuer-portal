@@ -56,8 +56,10 @@ export default {
   },
 
   proxy: {
-    '/issuer-api/': 'https://wallet.waltid.org',
-    '/api/': 'https://wallet.waltid.org'
+    // '/issuer-api/': 'https://wallet.waltid.org',
+    // '/api/': 'https://wallet.waltid.org'
+     '/issuer-api/': 'http://localhost:8080/',
+     '/api/': 'http://localhost:8080/'
   },
 
   auth: {
@@ -88,9 +90,9 @@ export default {
     /* module options */
     langDir: '~/locales/',
     locales: [
-      { code: 'en', iso: 'en-US', file: 'en.js', flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png' },
-      { code: 'de', iso: 'de-DE', file: 'de.js', flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png' },
-      { code: 'fr', iso: 'fr-FR', file: 'fr.js', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Flag_of_France_%281794%E2%80%931815%2C_1830%E2%80%931958%29.svg/1200px-Flag_of_France_%281794%E2%80%931815%2C_1830%E2%80%931958%29.svg.png' },
+      { code: 'en', iso: 'en-US', file: 'en.js', flag: 'flag-en.svg' },
+      { code: 'de', iso: 'de-DE', file: 'de.js', flag: 'flag-de.svg' },
+      { code: 'fr', iso: 'fr-FR', file: 'fr.js', flag: 'flag-fr.svg' },
     ],
     defaultLocale: 'en',
     strategy: 'no_prefix',
@@ -105,6 +107,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    babel: {
+      compact: true
+    }
   },
 
   ssr: false,
