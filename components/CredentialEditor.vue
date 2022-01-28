@@ -262,22 +262,6 @@
             </div>
           </div>
         </div>
-        <div class="row _forms mb-3">
-          <div class="col-11">
-            <div class="right-inner-addon input-container">
-              <i class="bi bi-calendar2-event"></i>
-              <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.DOMAIN')" aria-label="domain" v-model="issuable.credentialData.credentialSubject.domain">
-            </div>
-          </div>
-        </div>
-        <div class="row _forms mb-3">
-          <div class="col-11">
-            <div class="right-inner-addon input-container">
-              <i class="bi bi-calendar2-event"></i>
-              <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.ETH_ADDRESS')" aria-label="ethereumAddress" v-model="issuable.credentialData.credentialSubject.ethereumAddress">
-            </div>
-          </div>
-        </div>
       </div>
 
   <!-- ParticipantCredential -->
@@ -295,6 +279,22 @@
         <div class="right-inner-addon input-container">
           <i class="bi bi-card-text"></i>
           <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.PROGRAM_NAME')" v-model="issuable.credentialData.credentialSubject.programName">
+        </div>
+      </div>
+      <div class="row _forms mb-3">
+        <div class="col-11">
+          <div class="right-inner-addon input-container">
+            <i class="bi bi-calendar2-event"></i>
+            <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.DOMAIN')" aria-label="domain" v-model="issuable.credentialData.credentialSubject.domain">
+          </div>
+        </div>
+      </div>
+      <div class="row _forms mb-3">
+        <div class="col-11">
+          <div class="right-inner-addon input-container">
+            <i class="bi bi-calendar2-event"></i>
+            <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.ETH_ADDRESS')" aria-label="ethereumAddress" v-model="issuable.credentialData.credentialSubject.ethereumAddress">
+          </div>
         </div>
       </div>
     </div>
