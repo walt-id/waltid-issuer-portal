@@ -16,6 +16,8 @@ export default {
     EDIT_CREDENTIAL: 'Edit credential data',
     CLOSE: 'Close',
     CONFIRM: 'Confirm',
+    ERROR_ISSUING: 'Requested credential(s) cannot be issued:',
+    ONBOARDING: 'Onboarding',
     CREDENTIAL: {
         ID: 'Id',
         TITLE: 'Title',
