@@ -61,15 +61,85 @@
       </div>
     </header>
     <main>
-      <section class="py-5 text-center container">
+      <section class="py-5 text-center container _onboarding">
         <div class="row py-lg-5">
-          <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-normal">
-              {{$t('ONBOARDING')}}
-            </h1>
-            <p class="lead text-muted fw-normal mb-4">
-              <b>Authorized as:</b> {{did}}
-            </p>
+          <div :class="this.wizardIndex === 0 ? 'col-lg-6 text-center col-md-8 mx-auto px-2 py-4 border border-1 border-secondary rounded _verify': 'hide'">
+            <h2 class="fw-bolder">
+              {{/*$t('ONBOARDING')*/}}
+              Onboarding Portal
+            </h2>
+            <div class="mt-3">
+              <p>This service verifies your domain, your email and ETH account<br> and issues a Gaia-X Participant Credential.</p>
+            </div>
+            <div class="mt-2">
+              <p class="fw-bold text-primary mb-1"><span>Authenticated DID</span></p>
+              <p><span>did:web:example.com:NsBxYAAWHut2Geadd9jSwuBV8xRoAnwWsdvktH</span></p>
+            </div>
+            <div class="mt-2">
+              <div class="mb-3 d-flex justify-content-center">
+                <div>
+                  <a @click="wizardNext" class="d-flex justify-content-center align-items-center px-3 py-3 _input">
+                    <div class="col-8 ps-3 text-start">
+                      <span>Verify Domain</span>
+                    </div>
+                    <div class="col">
+                      <i v-if="this.domainVerified" class="bi bi-check-circle-fill px-3 _checked text-primary"></i>
+                      <i v-else class="bi bi-check-circle px-3 _checked"></i>
+                    </div>
+                    <div class="col">
+                      <i class="bi bi-chevron-right px-3 _arrow"></i>
+                    </div>
+                  </a>
+                  <a class="d-flex justify-content-center align-items-center px-3 py-3 _input mt-3">
+                    <div class="col-8 ps-3 text-start">
+                      <span>Email</span>
+                    </div>
+                    <div class="col">
+                      <i class="bi bi-check-circle px-3 _checked"></i>
+
+                    </div>
+                    <div class="col">
+                      <i class="bi bi-chevron-right px-3 _arrow"></i>
+                    </div>
+                  </a>
+                  <div class="d-flex justify-content-center align-items-center mt-3">
+                    <button v-if="this.domainVerified && this.emailVerified" class="btn _submit-btn py-3 px-4 text-center">Issue Participant Credential</button>
+                    <button v-else class="btn _submit-btn-inactive py-3 px-4 text-center">Issue Participant Credential</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div :class="this.wizardIndex === 1 ? 'col-lg-6 text-center col-md-8 mx-auto px-2 py-4 border border-1 border-secondary rounded _domain': 'hide'">
+            <h2 class="fw-bolder">
+              {{/*$t('ONBOARDING')*/}}
+               Verify Domain
+            </h2>
+            <div class="mt-3">
+              <p>Add the verification code as TXT record to the domains DNS records. </p>
+            </div>
+            <div class="mt-2">
+              <div class="mb-3 d-flex justify-content-center">
+                <div>
+                  <form form action="" @submit.prevent="getVerificationCode">
+                    <div>
+                      <input type="text" name="domain" id="domain" placeholder="www.exemple.com">
+                      <button type="submit" name="submit" class="btn _submit-btn py-2 px-4 text-center">Get verification code</button>
+                    </div>
+                  </form>
+                  <textarea name="txtVerification" id="txt-verification" class="mt-3" :data="this.txtVerification" v-model="txtVerificationCode"></textarea>
+                  <button @click="verfiyDomain" class="btn _submit-btn py-2 px-4 text-center mt-3">Check domain</button>
+                  <div class="_statue mt-3">
+                    <p v-if="this.domainOnVerification" class="_fading">
+                      <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="domain On Verification loading" width="25px"><br>
+                      Domain name on verification
+                    </p>
+                    <p v-if="this.domainVerified === false" class=text-danger>Your domain not verfied!</p>
+                    <p v-else-if="this.domainVerified === true" class=text-success>Your domain name verfied successfully!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -81,24 +151,57 @@
     </footer>
   </div>
 </template>
-	
+
 <script>
 export default {
 	middleware: ["onboarding"],
   auth: false,
+  data () {
+    return {
+      wizardIndex: 0,
+      domainOnVerification: false,
+      domainVerified: null,
+      txtVerificationCode: '',
+      emailOnVerification: false,
+      emailVerified: null,
+
+    }
+  },
   computed: {
     did () {
       console.log("UserINfo ", this.$store.state.auth)
-      return this.$store.state.auth.user.did
+      //return this.$store.state.auth.user.did
+      return '078dafa7-7f58-48c9-afc8-e700c3758aa5'
     },
     availableLocales () {
       console.log("locales", this.$i18n.locales)
       return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
     }
+  },
+  methods:{
+    wizardNext: function(){
+      this.wizardIndex = this.wizardIndex+1
+    },
+    wizardBack: function(){
+      this.wizardIndex = this.wizardIndex+1
+    },
+    wizard: function(index){
+      this.wizardIndex = index
+    },
+    getVerificationCode: function(){
+      this.txtVerificationCode = 'ssi-verification=8R9lJ0rt5q8gEQVeGbN6ibnpN8CxtXY1E5JL-mx9UXA'
+    },
+    verfiyDomain: function(){
+      this.domainOnVerification = true;
+      setTimeout(()=>{
+        this.domainOnVerification = false;
+        this.domainVerified = true;
+        setTimeout(()=>{
+          this.wizardIndex=0
+        }, 3000)
+      }, 3000)
+    }
   }
+
 }
 </script>
-	
-<style scoped>
-	
-</style>

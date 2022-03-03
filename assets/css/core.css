@@ -175,7 +175,7 @@ body ._main #widget ._content ._scrollable::-webkit-scrollbar {
 }
 
 body ._main #widget ._content ._scrollable::-webkit-scrollbar-track {
-  background: #E9EFFF;
+  background: #0573f042;
   border-radius: 5px;
 }
 
@@ -193,7 +193,7 @@ body ._main #widget ._content ._scrollable ._card {
   text-align: left;
   width: 22vw;
   min-height: 100px;
-  border: 2px solid #E9EFFF;
+  border: 2px solid #0573f042;
   padding: 15px;
   border-radius: 15px;
 }
@@ -224,8 +224,8 @@ body ._main #widget ._content ._scrollable ._card i._icon-inactive {
 
 body ._main #widget ._content ._search form input {
   text-align: center;
-  background-color: #E9EFFF;
-  border: 2px solid #E9EFFF;
+  background-color: #0573f042;
+  border: 2px solid #0573f042;
   border-radius: 7px;
   margin-bottom: 5px;
 }
@@ -250,7 +250,7 @@ body ._main #widget ._content ._container ._card {
   text-align: left;
   width: 22vw;
   min-height: 175px;
-  border: 2px solid #E9EFFF;
+  border: 2px solid #0573f042;
   padding: 15px;
   border-radius: 15px;
 }
@@ -307,7 +307,7 @@ body ._main #widget ._content ._container-list ._window-content {
   overflow: auto;
   overflow-x: hidden !important;
   border-radius: 25px;
-  border: 2px solid #E9EFFF;
+  border: 2px solid #0573f042;
 }
 
 body ._main #widget ._content ._container-list ._window-content::-webkit-scrollbar {
@@ -316,7 +316,7 @@ body ._main #widget ._content ._container-list ._window-content::-webkit-scrollb
 }
 
 body ._main #widget ._content ._container-list ._window-content::-webkit-scrollbar-track {
-  background: #E9EFFF;
+  background: #0573f042;
 }
 
 body ._main #widget ._content ._container-list ._window-content::-webkit-scrollbar-thumb {
@@ -468,7 +468,7 @@ body ._main #widget ._top-bar ._more-button i {
 
 body ._main #widget ._top-bar ._dropdown {
   padding: 0;
-  border-color: #E9EFFF;
+  border-color: #0573f042;
   padding: 0;
 }
 
@@ -478,7 +478,7 @@ body ._main #widget ._top-bar ._dropdown a {
 }
 
 body ._main #widget ._top-bar ._dropdown a:hover {
-  background-color: #E9EFFF;
+  background-color: #0573f042;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -496,7 +496,7 @@ body ._main #widget ._window ._window-content {
   overflow: auto;
   overflow-x: hidden !important;
   border-radius: 25px;
-  border: 2px solid #E9EFFF;
+  border: 2px solid #0573f042;
 }
 
 body ._main #widget ._window ._window-content::-webkit-scrollbar {
@@ -505,7 +505,7 @@ body ._main #widget ._window ._window-content::-webkit-scrollbar {
 }
 
 body ._main #widget ._window ._window-content::-webkit-scrollbar-track {
-  background: #E9EFFF;
+  background: #0573f042;
 }
 
 body ._main #widget ._window ._window-content::-webkit-scrollbar-thumb {
@@ -525,7 +525,7 @@ body ._main #widget ._window ._window-content::-webkit-scrollbar-button {
 body ._main #widget ._window ._window-content ._image {
   width: 150px;
   height: 150px;
-  background-color: #E9EFFF;
+  background-color: #0573f042;
   background-position: center;
   background-size: cover;
 }
@@ -544,6 +544,82 @@ body ._main #widget ._window ._window-content p {
   color: #575756;
   margin-bottom: 0;
   text-align: left;
+}
+
+body ._onboarding ._verify {
+  -webkit-transition: .7s;
+  transition: .7s;
+}
+
+body ._onboarding ._verify ._input {
+  border: 1px solid #888888;
+}
+
+body ._onboarding ._verify ._input span {
+  font-size: 18px;
+  margin-right: 10px;
+  font-weight: 500;
+  color: #292928;
+}
+
+body ._onboarding ._verify ._input ._checked {
+  font-size: 20px;
+  color: #292928;
+}
+
+body ._onboarding ._verify ._input ._arrow {
+  font-size: 20px;
+  color: #292928;
+}
+
+body ._onboarding ._verify ._input:hover {
+  border: 1px solid #0573F0;
+  -webkit-transition: .6s;
+  transition: .6s;
+  cursor: pointer;
+}
+
+body ._onboarding ._verify ._submit-btn {
+  background-color: #0573F0;
+  color: white;
+  text-align: center;
+}
+
+body ._onboarding ._verify ._submit-btn-inactive {
+  background-color: #0573f042;
+  color: white;
+  text-align: center;
+}
+
+body ._onboarding ._domain {
+  -webkit-transition: .7s;
+  transition: .7s;
+}
+
+body ._onboarding ._domain input {
+  border: 1px solid #888888;
+  padding: 8px 10px;
+  margin-bottom: -5px;
+  width: 50%;
+}
+
+body ._onboarding ._domain textarea {
+  width: 100%;
+  height: 100px;
+  background-color: rgba(204, 204, 204, 0.253);
+  border: 1px solid #888888;
+}
+
+body ._onboarding ._domain ._submit-btn {
+  margin-top: -5px;
+  background-color: #0573F0;
+  color: white;
+  text-align: center;
+}
+
+body ._onboarding ._domain ._statue p {
+  font-size: 15px;
+  margin-bottom: 0 !important;
 }
 
 @media only screen and (max-width: 3840px) {

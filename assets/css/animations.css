@@ -30,6 +30,11 @@ h2._animation-fade,
     animation-duration: 2s;
 }
 
+p._fading {
+    animation: fadeIn;
+    animation-duration: 1s;
+}
+
 ._button,
 ._btns {
     animation: bounceIn;
