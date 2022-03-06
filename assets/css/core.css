@@ -903,5 +903,24 @@ body ._onboarding ._domain ._statue p {
     max-height: 85vh;
     min-height: 85vh;
   }
+  body ._onboarding ._verify {
+    -webkit-transition: .7s;
+    transition: .7s;
+    width: 90%;
+  }
+  body ._onboarding ._domain {
+    -webkit-transition: .7s;
+    transition: .7s;
+    width: 90%;
+  }
+  body ._onboarding ._domain input {
+    border: 1px solid #888888;
+    padding: 8px 10px;
+    margin-bottom: 20px;
+    width: 58%;
+  }
+  body ._onboarding ._domain textarea {
+    width: 90%;
+  }
 }
 /*# sourceMappingURL=core.css.map */

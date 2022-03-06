@@ -847,5 +847,24 @@ body {
                 }
             }
         }
+        ._onboarding {
+            ._verify {
+                transition: .7s;
+                width: 90%;
+            }
+            ._domain {
+                transition: .7s;
+                width: 90%;
+                input {
+                    border: 1px solid #888888;
+                    padding: 8px 10px;
+                    margin-bottom: 20px;
+                    width: 58%;
+                }
+                textarea {
+                    width: 90%;
+                }
+            }
+        }
     }
 }

@@ -63,7 +63,7 @@
     <main>
       <section class="py-5 text-center container _onboarding">
         <div class="row py-lg-5">
-          <div :class="this.wizardIndex === 0 ? 'col-lg-6 text-center col-md-8 mx-auto px-2 py-4 border border-1 border-secondary rounded _verify': 'hide'">
+          <div :class="this.wizardIndex === 0 ? 'col-lg-6 text-center col-md-8 mx-auto px-2 py-4 border border-1 border-sm-0 border-secondary rounded _verify': 'hide'">
             <h2 class="fw-bolder">
               {{/*$t('ONBOARDING')*/}}
               Onboarding Portal
@@ -73,7 +73,7 @@
             </div>
             <div class="mt-2">
               <p class="fw-bold text-primary mb-1"><span>Authenticated DID</span></p>
-              <p><span>did:web:example.com:NsBxYAAWHut2Geadd9jSwuBV8xRoAnwWsdvktH</span></p>
+              <div style="max-width:100%"><span style="overflow-wrap: break-word;">{{this.did}}</span></div >
             </div>
             <div class="mt-2">
               <div class="mb-3 d-flex justify-content-center">
@@ -90,7 +90,7 @@
                       <i class="bi bi-chevron-right px-3 _arrow"></i>
                     </div>
                   </a>
-                  <a class="d-flex justify-content-center align-items-center px-3 py-3 _input mt-3">
+                  <!--<a class="d-flex justify-content-center align-items-center px-3 py-3 _input mt-3">
                     <div class="col-8 ps-3 text-start">
                       <span>Email</span>
                     </div>
@@ -101,9 +101,9 @@
                     <div class="col">
                       <i class="bi bi-chevron-right px-3 _arrow"></i>
                     </div>
-                  </a>
+                  </a>-->
                   <div class="d-flex justify-content-center align-items-center mt-3">
-                    <button v-if="this.domainVerified && this.emailVerified" class="btn _submit-btn py-3 px-4 text-center">Issue Participant Credential</button>
+                    <button v-if="this.domainVerified" class="btn _submit-btn py-3 px-4 text-center">Issue Participant Credential</button>
                     <button v-else class="btn _submit-btn-inactive py-3 px-4 text-center">Issue Participant Credential</button>
                   </div>
                 </div>
@@ -161,7 +161,7 @@ export default {
       wizardIndex: 0,
       domainOnVerification: false,
       domainVerified: null,
-      txtVerificationCode: '',
+      txtVerification: '',
       emailOnVerification: false,
       emailVerified: null,
 
@@ -169,9 +169,9 @@ export default {
   },
   computed: {
     did () {
-      console.log("UserINfo ", this.$store.state.auth)
-      //return this.$store.state.auth.user.did
-      return '078dafa7-7f58-48c9-afc8-e700c3758aa5'
+      console.log("UserInfo", this.$store.state.auth)
+      return this.$store.state.auth.user.did
+      //return '078dafa7-7f58-48c9-afc8-e700c3758aa5'
     },
     availableLocales () {
       console.log("locales", this.$i18n.locales)
