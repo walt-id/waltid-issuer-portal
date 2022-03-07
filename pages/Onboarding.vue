@@ -121,9 +121,9 @@
             <div class="mt-2">
               <div class="mb-3 d-flex justify-content-center">
                 <div>
-                  <form form action="" @submit.prevent="getVerificationCode">
+                  <form form action="" @submit.prevent="getVerificationCode" class="_form">
                     <div>
-                      <input type="text" name="domain" id="domain" placeholder="exemple.com" :data="this.domain" v-model="domain"><br>
+                      <input type="text" name="domain" id="domain" placeholder="example.com" :data="this.domain" v-model="domain"><br>
                       <button type="submit" name="submit" class="btn _submit-btn text-center">
                         <span v-if="this.txtVerificationLoading"><img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="domain On Verification loading" width="25px" style="opacity: 0.5"></span>
                         <span v-else>Get verification code</span>
@@ -141,8 +141,11 @@
                       Domain name on verification
                     </p>
                     <p v-if="this.coppied" class="text-secondary _fading">TXT copied to clipboard</p>
-                    <p v-if="this.domainVerified === false" class=text-danger>Not verfied, please wait moment!</p>
-                    <p v-else-if="this.domainVerified === true" class=text-success>Verfied successfully!</p>
+                    <p v-if="this.domainVerified === false" class=text-danger style="width: 250px; overflow-wrap: break-word;">Could not retrieve the domain verification code at {{this.domain}}</p>
+                    <span v-if="this.domainVerified === true" style="opacity: 0.7">
+                      <img src="https://c.tenor.com/0AVbKGY_MxMAAAAM/check-mark-verified.gif"  alt="checkmark success" width="35px">
+                    </span>
+                    <p v-if="this.domainVerified === true" class=text-success>Domain ownership verified successfully</p>
                   </div>
                 </div>
               </div>

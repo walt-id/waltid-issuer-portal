@@ -524,6 +524,9 @@ body {
         }
         ._domain {
             transition: .7s;
+            ._form {
+                width: 250px;
+            }
             input {
                 border: 1px solid $second-text-muted;
                 padding: 8px 10px;

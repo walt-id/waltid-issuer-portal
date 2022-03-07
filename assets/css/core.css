@@ -596,6 +596,10 @@ body ._onboarding ._domain {
   transition: .7s;
 }
 
+body ._onboarding ._domain ._form {
+  width: 250px;
+}
+
 body ._onboarding ._domain input {
   border: 1px solid #888888;
   padding: 8px 10px;
