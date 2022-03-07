@@ -527,20 +527,34 @@ body {
             input {
                 border: 1px solid $second-text-muted;
                 padding: 8px 10px;
-                margin-bottom: -5px;
-                width: 50%;
+                margin-bottom: 15px;
+                width: 100%;
             }
             textarea {
                 width: 100%;
-                height: 100px;
+                height: 140px;
                 background-color: rgba(204, 204, 204, 0.253);
                 border: 1px solid $second-text-muted;
+                margin-bottom: 15px;
+                font-size: 14px;
             }
             ._submit-btn {
-                margin-top: -5px;
                 background-color: $main-color;
                 color: white;
                 text-align: center;
+                width: 100%;
+                margin-bottom: 15px;
+                height: 45px;
+                padding: 10px 10px;
+            }
+            ._copy-btn {
+                background-color: $second-text-muted;
+                color: white;
+                text-align: center;
+                width: 100%;
+                margin-bottom: 15px;
+                height: 45px;
+                padding: 10px 10px;
             }
             ._statue {
                 p {

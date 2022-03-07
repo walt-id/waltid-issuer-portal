@@ -123,19 +123,26 @@
                 <div>
                   <form form action="" @submit.prevent="getVerificationCode">
                     <div>
-                      <input type="text" name="domain" id="domain" placeholder="www.exemple.com">
-                      <button type="submit" name="submit" class="btn _submit-btn py-2 px-4 text-center">Get verification code</button>
+                      <input type="text" name="domain" id="domain" placeholder="exemple.com" :data="this.domain" v-model="domain"><br>
+                      <button type="submit" name="submit" class="btn _submit-btn text-center">
+                        <span v-if="this.txtVerificationLoading"><img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="domain On Verification loading" width="25px" style="opacity: 0.5"></span>
+                        <span v-else>Get verification code</span>
+                      </button>
                     </div>
                   </form>
-                  <textarea name="txtVerification" id="txt-verification" class="mt-3" :data="this.txtVerification" v-model="txtVerificationCode"></textarea>
-                  <button @click="verfiyDomain" class="btn _submit-btn py-2 px-4 text-center mt-3">Check domain</button>
+                  <textarea name="txtVerification" id="txt-verification" :data="this.txtVerification" v-model="txtVerification"></textarea><br>
+                  <div v-if="this.success" class="d-flex justify-content-end">
+                    <button @click="onCopy" class="btn _copy-btn text-center">Copy <i class="bi bi-files"></i></button>
+                  </div>
+                  <button @click="verfiyDomain" class="btn _submit-btn text-center">Check domain</button>
                   <div class="_statue mt-3">
                     <p v-if="this.domainOnVerification" class="_fading">
                       <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="domain On Verification loading" width="25px"><br>
                       Domain name on verification
                     </p>
-                    <p v-if="this.domainVerified === false" class=text-danger>Your domain not verfied!</p>
-                    <p v-else-if="this.domainVerified === true" class=text-success>Your domain name verfied successfully!</p>
+                    <p v-if="this.coppied" class="text-secondary _fading">TXT copied to clipboard</p>
+                    <p v-if="this.domainVerified === false" class=text-danger>Not verfied, please wait moment!</p>
+                    <p v-else-if="this.domainVerified === true" class=text-success>Verfied successfully!</p>
                   </div>
                 </div>
               </div>
@@ -153,19 +160,24 @@
 </template>
 
 <script>
+import { copyText } from 'vue3-clipboard'
+
 export default {
 	middleware: ["onboarding"],
   auth: false,
   data () {
     return {
       wizardIndex: 0,
+      domain: null,
       domainOnVerification: false,
       domainVerified: null,
+      txtVerificationLoading: false,
       txtVerification: '',
       emailOnVerification: false,
       emailVerified: null,
-      issueBtnLoading: false
-
+      issueBtnLoading: false,
+      success: false,
+      coppied: false,
     }
   },
   computed: {
@@ -193,18 +205,65 @@ export default {
     wizard: function(index){
       this.wizardIndex = index
     },
-    getVerificationCode: function(){
-      this.txtVerificationCode = 'ssi-verification=8R9lJ0rt5q8gEQVeGbN6ibnpN8CxtXY1E5JL-mx9UXA'
+    getVerificationCode: async function(){
+      this.txtVerificationLoading=true
+      this.$axios.$post("/onboarding-api/domain/generateDomainVerificationCode", {
+          "domain": this.domain
+      })
+      .then(
+        res=>{
+           console.log(res)
+           this.txtVerificationLoading=false
+           this.txtVerification = res
+           this.success=true
+          }
+      )
+      .catch(
+        e=>{
+          console.log(e)
+          this.txtVerificationLoading=false
+        }
+      )
+
     },
     verfiyDomain: function(){
       this.domainOnVerification = true;
-      setTimeout(()=>{
-        this.domainOnVerification = false;
-        this.domainVerified = true;
-        setTimeout(()=>{
-          this.wizardIndex=0
-        }, 3000)
-      }, 3000)
+      this.$axios.$post("/onboarding-api/domain/checkDomainVerificationCode", {
+          "domain": this.domain
+      })
+      .then(
+        res=>{
+           console.log(res)
+           this.domainOnVerification = false;
+           if(res === true){
+             this.domainVerified = true;
+             setTimeout(()=>{
+               this.wizardIndex=0
+             }, 4500)
+           }else if(res === false){
+             this.domainVerified = false;
+           }
+      }
+      )
+      .catch(
+        e=>{
+          console.log(e)
+          this.txtVerificationLoading=false
+        }
+      )
+    },
+    onCopy: function(){
+        copyText(this.txtVerification, undefined, (error, event) => {
+          if (error) {
+            console.log(error)
+          } else {
+            this.coppied=true;
+            setTimeout(()=>{
+              this.coppied=false;
+            }, 3000)
+            console.log(event)
+          }
+        })
     },
     async issueCredential () {
       this.issueBtnLoading = true;
