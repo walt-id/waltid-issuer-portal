@@ -5,7 +5,7 @@
 /*Colors and Shdows*/
 
 $main-color: #0573F0;
-$light-color: #E9EFFF;
+$light-color: #0573f042;
 $main-text: #292928;
 $second-text: #575756;
 $second-text-muted: #888888;
@@ -486,6 +486,70 @@ body {
             }
         }
     }
+    ._onboarding {
+        ._verify {
+            transition: .7s;
+            ._input {
+                border: 1px solid $second-text-muted;
+                span {
+                    font-size: 18px;
+                    margin-right: 10px;
+                    font-weight: 500;
+                    color: $main-text;
+                }
+                ._checked {
+                    font-size: 20px;
+                    color: $main-text;
+                }
+                ._arrow {
+                    font-size: 20px;
+                    color: $main-text;
+                }
+                &:hover {
+                    border: 1px solid $main-color;
+                    transition: .6s;
+                    cursor: pointer;
+                }
+            }
+            ._submit-btn {
+                background-color: $main-color;
+                color: white;
+                text-align: center;
+            }
+            ._submit-btn-inactive {
+                background-color: $light-color;
+                color: white;
+                text-align: center;
+            }
+        }
+        ._domain {
+            transition: .7s;
+            input {
+                border: 1px solid $second-text-muted;
+                padding: 8px 10px;
+                margin-bottom: -5px;
+                width: 50%;
+            }
+            textarea {
+                width: 100%;
+                height: 100px;
+                background-color: rgba(204, 204, 204, 0.253);
+                border: 1px solid $second-text-muted;
+            }
+            ._submit-btn {
+                margin-top: -5px;
+                background-color: $main-color;
+                color: white;
+                text-align: center;
+            }
+            ._statue {
+                p {
+                    font-size: 15px;
+                    margin-bottom: 0 !important;
+                }
+            }
+        }
+    }
 }
 
 //responsive stylesheet
@@ -780,6 +844,25 @@ body {
                         max-height: 85vh;
                         min-height: 85vh;
                     }
+                }
+            }
+        }
+        ._onboarding {
+            ._verify {
+                transition: .7s;
+                width: 90%;
+            }
+            ._domain {
+                transition: .7s;
+                width: 90%;
+                input {
+                    border: 1px solid #888888;
+                    padding: 8px 10px;
+                    margin-bottom: 20px;
+                    width: 58%;
+                }
+                textarea {
+                    width: 90%;
                 }
             }
         }

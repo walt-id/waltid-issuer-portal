@@ -1,10 +1,14 @@
 export default function (context) {
-    if(!context.store.state.auth.loggedIn && context.route.query.access_token != null) {
-        console.log('Getting user info for access token ...', context.route.query.access_token)
-        return context.$axios.$get('/onboarding-api/auth/userToken', {headers: {
+    if(context.route.query.access_token != null) {
+        console.log('Getting user info for access token ...', context.route.query.access_token, context)
+        return context.$auth.logout(/* .... */)
+        .then(x =>  
+            context.$auth.loginWith('localOnboarding', {headers: {
             "Authorization": "Bearer " + context.route.query.access_token
-        }}).then(userInfo => { 
-            context.$auth.setUser(userInfo)
+        }}))
+        .then(async loginResponse => {
+            console.log("Logged in", loginResponse)
+            context.$auth.setUser(loginResponse.data)
         })
     }
 }
