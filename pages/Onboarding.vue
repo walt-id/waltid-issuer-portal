@@ -103,8 +103,8 @@
                     </div>
                   </a>-->
                   <div class="d-flex justify-content-center align-items-center mt-3">
-                    <button v-if="this.domainVerified" class="btn _submit-btn py-3 px-4 text-center">Issue Participant Credential</button>
-                    <button v-else class="btn _submit-btn-inactive py-3 px-4 text-center">Issue Participant Credential</button>
+                    <button v-if="this.domainVerified" @click="issueCredential()" class="btn _submit-btn py-3 px-4 text-center">Issue Participant Credential</button>
+                    <button v-else class="btn _submit-btn-inactive py-3 px-4 text-center"><img v-if="issueBtnLoading" src="loader.gif" width="20px"/><span v-else>Issue Participant Credential</span></button>
                   </div>
                 </div>
               </div>
@@ -164,6 +164,7 @@ export default {
       txtVerification: '',
       emailOnVerification: false,
       emailVerified: null,
+      issueBtnLoading: false
 
     }
   },
@@ -176,6 +177,10 @@ export default {
     availableLocales () {
       console.log("locales", this.$i18n.locales)
       return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+    },
+    sessionId() {
+      console.log("SESSION ID", this.$route.query)
+      return this.$route.query.sessionId
     }
   },
   methods:{
@@ -200,7 +205,13 @@ export default {
           this.wizardIndex=0
         }, 3000)
       }, 3000)
-    }
+    },
+    async issueCredential () {
+      this.issueBtnLoading = true;
+      const params = { "sessionId": this.sessionId }
+      const walletUrl = await this.$axios.$post('/onboarding-api/issue', {}, { params: params })
+      setTimeout(()=>{window.location = walletUrl}, 2000)
+    },
   }
 
 }
