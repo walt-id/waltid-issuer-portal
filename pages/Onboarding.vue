@@ -156,7 +156,7 @@
     </main>
     <footer class="fixed-bottom footer mt-auto py-3 bg-light">
       <div class="container">
-        <span class="text-muted">&#169; 2021 by walt.id </span>
+        <span class="text-muted">&#169; 2022 by walt.id </span>
       </div>
     </footer>
   </div>
@@ -271,7 +271,9 @@ export default {
     async issueCredential () {
       this.issueBtnLoading = true;
       const params = { "sessionId": this.sessionId }
-      const walletUrl = await this.$axios.$post('/onboarding-api/issue', {}, { params: params })
+      const walletUrl = await this.$axios.$post('/onboarding-api/issue', {
+        "domain": this.domain
+      }, { params: params })
       setTimeout(()=>{window.location = walletUrl}, 2000)
     },
   }
