@@ -43,7 +43,7 @@
 </template>
 
 <script>
-const { genSaltSync, hashSync } = require('bcryptjs');
+const { hashSync } = require('bcryptjs');
 
 export default {
   name: "login",
