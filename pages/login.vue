@@ -36,7 +36,7 @@
       <a href="#" v-for="locale in availableLocales" :key="locale.code" @click.prevent.stop="$i18n.setLocale(locale.code)">
         <img :src="locale.flag" width="20px" height="15px" :alt="locale.iso" class="me-2 border border-white" />
       </a>
-      <p class="mt-3 mb-3 text-muted">&copy; 2021 walt.id </p>
+      <p class="mt-3 mb-3 text-muted">{{ $config.copyright }}</p>
      </form>
     </main>
   </section>

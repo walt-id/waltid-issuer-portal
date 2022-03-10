@@ -123,6 +123,10 @@ export default {
     middleware: ["auth"]
   },
 
+  publicRuntimeConfig: {
+    copyright: process.env.COPYRIGHT || 'powered by walt.id'
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     babel: {
