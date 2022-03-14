@@ -124,7 +124,8 @@ export default {
   },
 
   publicRuntimeConfig: {
-    copyright: process.env.COPYRIGHT || 'powered by walt.id'
+    copyright: process.env.COPYRIGHT || 'powered by walt.id',
+    salt: process.env.SALT
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

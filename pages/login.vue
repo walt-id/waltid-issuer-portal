@@ -43,6 +43,8 @@
 </template>
 
 <script>
+const { hashSync } = require('bcryptjs');
+
 export default {
   name: "login",
   data () {
@@ -59,12 +61,15 @@ export default {
     }
   },
   methods: {
+    async bcrypt(val) {
+      return hashSync(val, this.$config.salt);
+    },
     async login () {
       try {
         const loginResponse = await this.$auth.loginWith("local", {
           data: {
-            id: this.email,
-            password: this.password
+            id: this.bcrypt(this.email),
+            password: this.bcrypt(this.password)
           }
         })
         this.$auth.setUser(loginResponse.data)
