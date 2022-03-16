@@ -43,8 +43,6 @@
 </template>
 
 <script>
-const { hashSync } = require('bcryptjs');
-
 export default {
   name: "login",
   data () {
@@ -61,15 +59,27 @@ export default {
     }
   },
   methods: {
-    async bcrypt(val) {
-      return hashSync(val, this.$config.salt);
+    async hashWithSalt(message) {
+      try {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(message + this.$config.SALT);
+        const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer)); // convert buffer to byte array
+        const hashHex = hashArray
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join(""); // convert bytes to hex string
+
+        return hashHex;
+      } catch (e) {
+        console.error(e)
+      }
     },
     async login () {
       try {
         const loginResponse = await this.$auth.loginWith("local", {
           data: {
-            id: this.bcrypt(this.email),
-            password: this.bcrypt(this.password)
+            id: await this.hashWithSalt(this.email),
+            password: await this.hashWithSalt(this.password)
           }
         })
         this.$auth.setUser(loginResponse.data)
