@@ -48,6 +48,13 @@ export default {
         COUNTRY_OF_VACCINATION: 'Land der Impfung',
         PROGRAM_NAME: 'Programm Name',
         ETH_ADDRESS: 'ETH Address',
-        DOMAIN: 'Domain'
+        DOMAIN: 'Domain',
+        COMPANY_NUMBER: 'Firmennummer',
+        COMPANY_NAME: 'Firmenname',
+        HEADQUARTER_COUNTRY: 'Hauptsitz',
+        LEGAL_COUNTRY: 'Rechtliches land',
+        LEI: 'Lei',
+        PARENT_ORGANIZATION: 'Elternorganisation',
+        SUB_ORGANIZATION: 'Unterorganisation'
     }
 }
