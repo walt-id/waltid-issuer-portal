@@ -49,14 +49,14 @@ export default {
         ADMINISTERING_CENTER: 'Administering center',
         COUNTRY_OF_VACCINATION: 'Country of vaccination',
         PROGRAM_NAME: 'Programm Name',
-        ETH_ADDRESS: 'ETH Address',
         DOMAIN: 'Domain',
-        COMPANY_NUMBER: 'Company number',
-        COMPANY_NAME: 'Company name',
-        HEADQUARTER_COUNTRY: 'Headquarter country',
-        LEGAL_COUNTRY: 'Legal country',
-        LEI: 'Lei',
+        REGISTRATION_NUMBER: 'Registration number',
+        LEGALLY_BINDING_NAME: 'Legally binding name',
+        JURISDICTION: 'Jurisdiction',
+        COUNTRY: 'Country',
+        LEI_CODE: 'LEI code',
+        ETH_ADDRESS: 'ETH Address',
         PARENT_ORGANIZATION: 'Parent organization',
-        SUB_ORGANIZATION: 'Sub-organization'
+        SUB_ORGANIZATION: 'Sub organization'
     }
 }

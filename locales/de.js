@@ -47,14 +47,14 @@ export default {
         ADMINISTERING_CENTER: 'Impfzentrum',
         COUNTRY_OF_VACCINATION: 'Land der Impfung',
         PROGRAM_NAME: 'Programm Name',
-        ETH_ADDRESS: 'ETH Address',
         DOMAIN: 'Domain',
-        COMPANY_NUMBER: 'Firmennummer',
-        COMPANY_NAME: 'Firmenname',
-        HEADQUARTER_COUNTRY: 'Hauptsitz',
-        LEGAL_COUNTRY: 'Rechtliches land',
-        LEI: 'Lei',
-        PARENT_ORGANIZATION: 'Elternorganisation',
-        SUB_ORGANIZATION: 'Unterorganisation'
+        REGISTRATION_NUMBER: 'Firmennummer',
+        LEGALLY_BINDING_NAME: 'Firmenname',
+        JURISDICTION: 'Hauptsitz',
+        COUNTRY: 'Land',
+        LEI_CODE: 'LEI code',
+        ETH_ADDRESS: 'ETH Address',
+        PARENT_ORGANIZATION: 'Dach-Gesellschaft',
+        SUB_ORGANIZATION: 'Tochter-Gesellschaft'
     }
 }

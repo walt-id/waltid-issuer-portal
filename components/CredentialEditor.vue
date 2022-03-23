@@ -278,31 +278,31 @@
       <div class="col-11">
         <div class="right-inner-addon input-container">
           <i class="bi bi-calendar2-event"></i>
-          <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.COMPANY_NUMBER')" v-model="issuable.credentialData.credentialSubject.companyNumber">
+          <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.REGISTRATION_NUMBER')" v-model="issuable.credentialData.credentialSubject.hasRegistrationNumber">
         </div>
       </div>
       <div class="col-11">
         <div class="right-inner-addon input-container">
           <i class="bi bi-calendar2-event"></i>
-          <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.COMPANY_NAME')" v-model="issuable.credentialData.credentialSubject.companyName">
+          <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.LEGALLY_BINDING_NAME')" v-model="issuable.credentialData.credentialSubject.hasLegallyBindingName">
         </div>
       </div>
       <div class="col-11">
         <div class="right-inner-addon input-container">
           <i class="bi bi-calendar2-event"></i>
-          <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.HEADQUARTER_COUNTRY')" v-model="issuable.credentialData.credentialSubject.headquarterCountry">
+          <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.JURISDICTION')" v-model="issuable.credentialData.credentialSubject.hasJurisdiction">
         </div>
       </div>
       <div class="col-11">
         <div class="right-inner-addon input-container">
           <i class="bi bi-calendar2-event"></i>
-          <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.LEGAL_COUNTRY')" v-model="issuable.credentialData.credentialSubject.legalCountry">
+          <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.COUNTRY')" v-model="issuable.credentialData.credentialSubject.hasCountry">
         </div>
       </div>
       <div class="col-11">
         <div class="right-inner-addon input-container">
           <i class="bi bi-calendar2-event"></i>
-          <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.LEI')" v-model="issuable.credentialData.credentialSubject.lei">
+          <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.LEI_CODE')" v-model="issuable.credentialData.credentialSubject.leiCode">
         </div>
       </div>
       <div class="col-11">
