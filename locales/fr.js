@@ -47,7 +47,14 @@ export default {
         ADMINISTERING_CENTER: 'Centre d\'administration',
         COUNTRY_OF_VACCINATION: 'Pays de vaccination',
         PROGRAM_NAME: 'Nom du programme',
+        DOMAIN: 'Domain',
+        REGISTRATION_NUMBER: 'Numéro d\'entreprise',
+        LEGALLY_BINDING_NAME: 'Nom de l\'entreprise ',
+        JURISDICTION: 'Pays du siège ',
+        COUNTRY: 'Pays légal',
+        LEI_CODE: 'LEI',
         ETH_ADDRESS: 'ETH Address',
-        DOMAIN: 'Domain'
+        PARENT_ORGANIZATION: 'Organisation mère',
+        SUB_ORGANIZATION: 'Sous-organisation'
     }
 }
