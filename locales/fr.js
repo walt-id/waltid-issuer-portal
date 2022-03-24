@@ -121,5 +121,6 @@ export default {
         EIDAS_LEGAL_IDENTIFIER: 'EIDAS legal identifier',
         REGISTRATION: 'Registration',
         PREFERRED_NAME: 'Preferred name',
+        EUROPASS: "Europass",
     }
 }
