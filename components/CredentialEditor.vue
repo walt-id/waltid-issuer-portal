@@ -368,7 +368,7 @@
             </div>
             </div>
         </div>
-        <div class="row _forms mb-3">
+        <div class="row _forms mb-3" v-if="issuable.credentialData.credentialSubject.learningSpecification">
             <div class="col-11">
             <div class="right-inner-addon input-container">
                 <i class="bi bi-calendar2-event"></i>
@@ -376,37 +376,39 @@
             </div>
             </div>
         </div>
-        <div class="row _forms mb-3">
-            <div class="col-11">
-            <div class="right-inner-addon input-container">
-                <i class="bi bi-calendar2-event"></i>
-                <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.ID')" v-model="issuable.credentialData.credentialSubject.learningAchievement.id">
-            </div>
-            </div>
-        </div>
-        <div class="row _forms mb-3">
-            <div class="col-11">
-            <div class="right-inner-addon input-container">
-                <i class="bi bi-calendar2-event"></i>
-                <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.TITLE')" v-model="issuable.credentialData.credentialSubject.learningAchievement.title">
-            </div>
-            </div>
-        </div>
-        <div class="row _forms mb-3">
-            <div class="col-11">
-            <div class="right-inner-addon input-container">
-                <i class="bi bi-calendar2-event"></i>
-                <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.DESCRIPTION')" v-model="issuable.credentialData.credentialSubject.learningAchievement.description">
-            </div>
-            </div>
-        </div>
-        <div class="row _forms mb-3">
-            <div class="col-11">
-            <div class="right-inner-addon input-container">
-                <i class="bi bi-calendar2-event"></i>
-                <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.ADDITIONAL_NOTE')" v-model="issuable.credentialData.credentialSubject.learningAchievement.additionalNote">
-            </div>
-            </div>
+        <div v-if="issuable.credentialData.credentialSubject.learningAchievement">
+          <div class="row _forms mb-3">
+              <div class="col-11">
+              <div class="right-inner-addon input-container">
+                  <i class="bi bi-calendar2-event"></i>
+                  <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.ID')" v-model="issuable.credentialData.credentialSubject.learningAchievement.id">
+              </div>
+              </div>
+          </div>
+          <div class="row _forms mb-3">
+              <div class="col-11">
+              <div class="right-inner-addon input-container">
+                  <i class="bi bi-calendar2-event"></i>
+                  <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.TITLE')" v-model="issuable.credentialData.credentialSubject.learningAchievement.title">
+              </div>
+              </div>
+          </div>
+          <div class="row _forms mb-3">
+              <div class="col-11">
+              <div class="right-inner-addon input-container">
+                  <i class="bi bi-calendar2-event"></i>
+                  <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.DESCRIPTION')" v-model="issuable.credentialData.credentialSubject.learningAchievement.description">
+              </div>
+              </div>
+          </div>
+          <div class="row _forms mb-3">
+              <div class="col-11">
+              <div class="right-inner-addon input-container">
+                  <i class="bi bi-calendar2-event"></i>
+                  <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.ADDITIONAL_NOTE')" v-model="issuable.credentialData.credentialSubject.learningAchievement.additionalNote">
+              </div>
+              </div>
+          </div>
         </div>
       </div>
     </div>
