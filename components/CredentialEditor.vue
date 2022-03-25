@@ -342,9 +342,17 @@
         </div>
       </div>
 
-      <!-- europass -->
+      <!-- Europass -->
       <div v-if="issuable.type == 'Europass'">
         <div class="row _forms mb-3">
+          <div class="col-11">
+            <div class="right-inner-addon input-container">
+              <i class="bi bi-card-text"></i>
+              <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.STUDENT_ID')" v-model="issuable.credentialData.credentialSubject.identifier.value">
+            </div>
+          </div>
+        </div>
+<!--        <div class="row _forms mb-3">
             <div class="col-11">
             <div class="right-inner-addon input-container">
                 <i class="bi bi-card-text"></i>
@@ -407,7 +415,7 @@
                 <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.ADDITIONAL_NOTE')" v-model="issuable.credentialData.credentialSubject.learningAchievement.additionalNote">
             </div>
             </div>
-        </div>
+        </div>-->
       </div>
     </div>
 </template>

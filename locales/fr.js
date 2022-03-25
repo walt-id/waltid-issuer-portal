@@ -99,8 +99,6 @@ export default {
         VALUE: 'Value',
         ASSESSED_BY: 'Assessed by',
         TEACHES: 'Teaches',
-        HAS_PART: 'Has part',
-        SPECIALIZATION_OF: 'Specialization of',
         ENTRY_REQUIREMENTS_NOTE: 'Entry requirements note',
         NAME: 'Name',
         LEARNING_OUTCOME_TYPE: 'Learning outcome type',
@@ -122,5 +120,6 @@ export default {
         REGISTRATION: 'Registration',
         PREFERRED_NAME: 'Preferred name',
         EUROPASS: "Europass",
+        STUDENT_ID: "Élève ID"
     }
 }

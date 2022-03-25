@@ -101,7 +101,6 @@ export default {
         VALUE: 'Value',
         ASSESSED_BY: 'Assessed by',
         TEACHES: 'Teaches',
-        HAS_PART: 'Has part',
         SPECIALIZATION_OF: 'Specialization of',
         ENTRY_REQUIREMENTS_NOTE: 'Entry requirements note',
         NAME: 'Name',
@@ -119,10 +118,10 @@ export default {
         LEARNING_ACTIVITY_SPECIFICATION: 'Learning activity specification',
         ASSESSMENT_SPECIFICATION: 'Assessment specification',
         ENTITLEMENT_SPECIFICATION: 'Entitlement specification',
-        SPECIALIZATION_OF: 'Specialization of',
         EIDAS_LEGAL_IDENTIFIER: 'EIDAS legal identifier',
         REGISTRATION: 'Registration',
         PREFERRED_NAME: 'Preferred name',
         EUROPASS: "Europass",
+        STUDENT_ID: "Student ID"
     }
 }
