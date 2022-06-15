@@ -120,6 +120,8 @@ export default {
         REGISTRATION: 'Registration',
         PREFERRED_NAME: 'Preferred name',
         EUROPASS: "Europass",
-        STUDENT_ID: "Élève ID"
+        STUDENT_ID: "Élève ID",
+        ISSUER_NAME: "Émetteur",
+        HOLDER_NAME: "Le bénéficiaire"
     }
 }
