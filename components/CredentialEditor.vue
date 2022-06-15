@@ -417,6 +417,20 @@
             </div>
         </div>-->
       </div>
+
+      <!-- OpenBadgeCredential -->
+      <div v-if="issuable.type == 'OpenBadgeCredential'">
+        <div class="row _forms mb-3">
+          <div class="col-11">
+            <div class="right-inner-addon input-container">
+              <i class="bi bi-card-text"></i>
+              <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.HOLDER_NAME')" aria-label="Family name" v-model="issuable.credentialData.credentialSubject.name">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
 </template>
 <script>

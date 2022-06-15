@@ -122,6 +122,8 @@ export default {
         REGISTRATION: 'Registration',
         PREFERRED_NAME: 'Preferred name',
         EUROPASS: "Europass",
-        STUDENT_ID: "Student ID"
+        STUDENT_ID: "Student ID",
+        ISSUER_NAME: "Name of issuer",
+        HOLDER_NAME: "Name of holder"
     }
 }
