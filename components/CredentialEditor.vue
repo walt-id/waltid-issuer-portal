@@ -30,15 +30,15 @@
           <div class="col-11">
             <div class="right-inner-addon input-container">
               <i class="bi bi-calendar2-event"></i>
-              <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.DATE_OF_BIRTH')" aria-label="DateOfBirth" v-model="issuable.credentialData.credentialSubject.dateOfBirth">
+              <textarea :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.ADDRESS')" aria-label="Address" v-model="currentAddress"  @input="issuable.credentialData.credentialSubject.currentAddress = textareaToArray($event.target.value)"></textarea>
             </div>
           </div>
         </div>
         <div class="row _forms mb-3">
           <div class="col-11">
             <div class="right-inner-addon input-container">
-              <i class="bi bi-map"></i>
-              <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.NATIONALITY')" aria-label="Nationality" v-model="issuable.credentialData.credentialSubject.nationality">
+              <i class="bi bi-calendar2-event"></i>
+              <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.DATE_OF_BIRTH')" aria-label="DateOfBirth" v-model="issuable.credentialData.credentialSubject.dateOfBirth">
             </div>
           </div>
         </div>
@@ -425,6 +425,16 @@ export default {
   props: {
     issuable: {},
     enableEditor: false
+  },
+  data() {
+    return {
+      currentAddress: (this.issuable.credentialData.credentialSubject.currentAddress || []).join('\n')
+    }
+  },
+  methods: {
+    textareaToArray(value) {
+      return value.split('\n').map(x => x.trim()).filter(x => x)
+    }
   }
 }
 </script>
