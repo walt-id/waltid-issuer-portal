@@ -1,4 +1,6 @@
 <template>
+  <div>
+    <Notice></Notice>
   <section class="text-center login-body">
     <main class="form-signin">
      <form form action="" id="login-form" class="my-4" @submit.prevent="login">
@@ -40,6 +42,7 @@
      </form>
     </main>
   </section>
+    </div>
 </template>
 
 <script>
