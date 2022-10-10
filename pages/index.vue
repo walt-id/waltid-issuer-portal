@@ -96,7 +96,15 @@
                   </div>
                 </div>
               </form>
-              <button @click="goToWallet(wallets[0].id)" class="btn btn-primary py-2 px-5 _cbtn" :disabled="this.checkedCredentials.length > 0 ? false : true"><img v-if="btnLoading" src="loader.gif" width="20px"/><span v-else>{{$t('CONFIRM')}}</span></button>
+              <b-check v-if="sessionId == null" v-model="preAuthorized">Pre-authorized</b-check>
+              <button @click="goToWallet(wallets[0].id)" class="btn btn-primary py-2 px-5 _cbtn" :disabled="this.checkedCredentials.length == 0 || btnLoading"><img v-if="btnLoading" src="loader.gif" width="20px"/><span v-else>{{$t('CONFIRM')}}</span></button>
+              <button v-if="sessionId == null" @click="goToWallet('x-device')" class="btn btn-primary py-2 px-5 _cbtn" :disabled="this.checkedCredentials.length == 0 || btnLoading"><i class="bi bi-upc-scan" /></button>
+          </div>
+          <div class="text-center" :v-show="qr-code-visible">
+            <canvas :id="'qr-code'" />
+            <div class="text-center small">
+            <pre class="qr-url-pre"><code>{{ walletUrl }}</code></pre>
+          </div>
           </div>
         </div>
       </section>
@@ -111,13 +119,17 @@
 
 <script>
 import CredentialEditor from '../components/CredentialEditor.vue'
+import QRious from "qrious"
 export default {
   components: { CredentialEditor },
   data () {
     return {
       checkedCredentials: [],
       enableCredentialEditor: false,
-      btnLoading: false
+      btnLoading: false,
+      qrCodeVisible: false,
+      walletUrl: "",
+      preAuthorized: true
     }
   },
   computed: {
@@ -134,6 +146,11 @@ export default {
     const wallets = await $axios.$get('/issuer-api/wallets/list')
     const issuables = await $axios.$get('/issuer-api/credentials/listIssuables', { params: query })
     return { wallets, issuables }
+  },
+  mounted() {
+    if(this.sessionId != null && this.issuables != null && this.issuables.credentials.length > 0) {
+      this.checkedCredentials = this.issuables.credentials.map(iss => iss.type)
+    }
   },
   methods: {
     reset(){
@@ -155,9 +172,17 @@ export default {
         credentials: this.issuables.credentials.filter(c => this.checkedCredentials.findIndex(cc => cc == c.type) >= 0)
       }
       console.log("Selected issuables:", selectedIssuables)
-      const params = this.sessionId != null ? { "sessionId": this.sessionId } : { "walletId": walletId }
-      const walletUrl = await this.$axios.$post('/issuer-api/credentials/issuance/request', selectedIssuables, { params: params })
-      setTimeout(()=>{window.location = walletUrl}, 2000)
+      const params = this.sessionId != null ? { "sessionId": this.sessionId } : { "walletId": walletId, "isPreAuthorized": this.preAuthorized }
+      this.walletUrl = await this.$axios.$post('/issuer-api/credentials/issuance/request', selectedIssuables, { params: params })
+      if(this.sessionId != null || walletId != "x-device") {
+        setTimeout(()=>{window.location = this.walletUrl}, 2000)
+      } else {
+        new QRious({
+        element: document.getElementById('qr-code'),
+          value: this.walletUrl,
+          size: 300
+        })
+      }
     },
     tester(){
       console.warn(this.issuables.credentials)
@@ -244,6 +269,9 @@ button._view-btn{
 }
 ._cbtn img{
   margin-top: -3px
+}
+.qr-url-pre {
+  padding-bottom: 0.5em;
 }
 @media only screen and (max-width: 600px) {
   label{
