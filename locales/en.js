@@ -1,7 +1,7 @@
 
 export default {
     CLAIM_CREDENTIALS: 'Claim credentials',
-    SELECT_CREDENTIALS_MSG: 'Select the credential you want to get issued',
+    SELECT_CREDENTIALS_MSG: 'Select the credential(s) you want to claim',
     SIGN_IN_MSG: 'Please sign in to {msg}',
     EMAIL_ADDRESS: 'E-mail address',
     PASSWORD: 'Password',
