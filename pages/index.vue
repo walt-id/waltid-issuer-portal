@@ -102,12 +102,14 @@
               <button @click="goToWallet(wallets[0].id)" class="btn btn-primary py-2 px-5 _cbtn" :disabled="!canSubmit"><img v-if="btnLoading" src="loader.gif" width="20px"/><span v-else>{{$t('CONFIRM')}}</span></button>
               <button v-if="sessionId == null" @click="goToWallet('x-device')" class="btn btn-primary py-2 px-5 _cbtn" :disabled="!canSubmit"><i class="bi bi-upc-scan" /></button>
           </div>
-          <div class="text-center" :v-show="qr-code-visible">
-            <canvas :id="'qr-code'" />
-            <div class="text-center small">
-            <pre class="qr-url-pre"><code>{{ walletUrl }}</code></pre>
-          </div>
-          </div>
+          <b-modal id="qr-modal" static="true" centered>
+            <div class="text-center" :v-show="qr-code-visible">
+              <canvas :id="'qr-code'" />
+              <div class="text-center small">
+                <pre class="qr-url-pre"><code>{{ walletUrl }}</code></pre>
+              </div>
+            </div>
+          </b-modal>
         </div>
       </section>
     </main>
@@ -182,8 +184,10 @@ export default {
       const params = this.sessionId != null ? { "sessionId": this.sessionId } : { "walletId": walletId, "isPreAuthorized": this.preAuthorized, "userPin": this.userPin }
       this.walletUrl = await this.$axios.$post('/issuer-api/credentials/issuance/request', selectedIssuables, { params: params })
       if(this.sessionId != null || walletId != "x-device") {
-        setTimeout(()=>{window.location = this.walletUrl}, 2000)
+        window.location = this.walletUrl
       } else {
+        this.btnLoading = false;
+        this.$bvModal.show("qr-modal")
         new QRious({
         element: document.getElementById('qr-code'),
           value: this.walletUrl,
