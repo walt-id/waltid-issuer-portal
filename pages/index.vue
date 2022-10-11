@@ -96,9 +96,11 @@
                   </div>
                 </div>
               </form>
-              <b-check v-if="sessionId == null" v-model="preAuthorized">Pre-authorized</b-check>
-              <button @click="goToWallet(wallets[0].id)" class="btn btn-primary py-2 px-5 _cbtn" :disabled="this.checkedCredentials.length == 0 || btnLoading"><img v-if="btnLoading" src="loader.gif" width="20px"/><span v-else>{{$t('CONFIRM')}}</span></button>
-              <button v-if="sessionId == null" @click="goToWallet('x-device')" class="btn btn-primary py-2 px-5 _cbtn" :disabled="this.checkedCredentials.length == 0 || btnLoading"><i class="bi bi-upc-scan" /></button>
+              <b-check v-if="sessionId == null" v-model="preAuthorized" class="mb-2">Pre-authorized</b-check>
+              <b-check v-if="sessionId == null" v-model="userPinRequired" class="mb-2">Requires user PIN</b-check>
+              <input :disabled="!userPinRequired" v-if="userPinRequired" type="password" class="form-control border-primary mb-2 w-50 mx-auto" placeholder="PIN" aria-label="PIN" v-model="userPin" autocomplete="new-password">
+              <button @click="goToWallet(wallets[0].id)" class="btn btn-primary py-2 px-5 _cbtn" :disabled="!canSubmit"><img v-if="btnLoading" src="loader.gif" width="20px"/><span v-else>{{$t('CONFIRM')}}</span></button>
+              <button v-if="sessionId == null" @click="goToWallet('x-device')" class="btn btn-primary py-2 px-5 _cbtn" :disabled="!canSubmit"><i class="bi bi-upc-scan" /></button>
           </div>
           <div class="text-center" :v-show="qr-code-visible">
             <canvas :id="'qr-code'" />
@@ -129,7 +131,9 @@ export default {
       btnLoading: false,
       qrCodeVisible: false,
       walletUrl: "",
-      preAuthorized: true
+      preAuthorized: true,
+      userPinRequired: false,
+      userPin: null
     }
   },
   computed: {
@@ -140,6 +144,9 @@ export default {
     sessionId() {
       console.log("SESSION ID", this.$route.query)
       return this.$route.query.sessionId
+    },
+    canSubmit() {
+      return this.checkedCredentials.length > 0 && !this.btnLoading && (!this.userPinRequired || this.userPin != null)
     }
   },
   async asyncData ({ $axios, query }) {
@@ -172,7 +179,7 @@ export default {
         credentials: this.issuables.credentials.filter(c => this.checkedCredentials.findIndex(cc => cc == c.type) >= 0)
       }
       console.log("Selected issuables:", selectedIssuables)
-      const params = this.sessionId != null ? { "sessionId": this.sessionId } : { "walletId": walletId, "isPreAuthorized": this.preAuthorized }
+      const params = this.sessionId != null ? { "sessionId": this.sessionId } : { "walletId": walletId, "isPreAuthorized": this.preAuthorized, "userPin": this.userPin }
       this.walletUrl = await this.$axios.$post('/issuer-api/credentials/issuance/request', selectedIssuables, { params: params })
       if(this.sessionId != null || walletId != "x-device") {
         setTimeout(()=>{window.location = this.walletUrl}, 2000)
