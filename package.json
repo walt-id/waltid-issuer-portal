@@ -19,6 +19,7 @@
         "bootstrap-vue": "^2.21.2",
         "core-js": "^3.20.3",
         "nuxt": "^2.15.7",
+        "qrious": "^4.0.2",
         "vue3-clipboard": "^1.0.0"
     },
     "devDependencies": {
