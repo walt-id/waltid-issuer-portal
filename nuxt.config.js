@@ -45,7 +45,6 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    "@nuxtjs/auth-next",
     '@nuxtjs/i18n'
   ],
 
@@ -64,45 +63,6 @@ export default {
     '/api/': 'http://localhost:8080/'
   },
 
-  auth: {
-    strategies: {
-      local: {
-        token: {
-          property: "token",
-          global: true,
-          required: true,
-          type: "Bearer"
-        },
-        user: false,
-        endpoints: {
-          login: { url: "api/auth/login", method: "post" },
-          user: { url: "api/auth/userInfo", method: "get" },
-          logout: false
-        }
-      },
-      localOnboarding: {
-        scheme: 'local',
-        token: {
-          property: "token",
-          global: true,
-          required: true,
-          type: "Bearer"
-        },
-        user: false,
-        endpoints: {
-          login: { url: "onboarding-api/auth/userToken", method: "get" },
-          user: { url: "api/auth/userInfo", method: "get" },
-          logout: false
-        }
-      }
-    },
-    redirect: {
-      login: '/login',
-      logout: '/logout',
-      home: '/'
-    },
-    cookie: false
-  },
 
   i18n: {
     /* module options */
@@ -120,7 +80,6 @@ export default {
   },
 
   router: {
-    middleware: ["auth"]
   },
 
   publicRuntimeConfig: {
