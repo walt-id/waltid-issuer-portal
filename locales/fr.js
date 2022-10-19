@@ -18,6 +18,7 @@ export default {
     CONFIRM: 'Confirmer',
     CREDENTIAL: {
         ID: 'Id',
+        TYPE: 'Type',
         TITLE: 'Titre',
         ISSUER: 'Émetteur',
         STATUS: 'Statut',
@@ -120,6 +121,11 @@ export default {
         REGISTRATION: 'Registration',
         PREFERRED_NAME: 'Preferred name',
         EUROPASS: "Europass",
-        STUDENT_ID: "Élève ID"
+        STUDENT_ID: "Élève ID",
+        ACHIEVMENT_TYPE:"Achievment type",
+        ACHIEVMENT_NAME:"Achievment name",
+        ACHIEVMENT_DESCRIPTION:"Achievment description",
+        ACHIEVMENT_CRITERIA_TYPE:"Criteria Type",
+        ACHIEVMENT_CRITERIA_narrative:"Criteria narrative"
     }
 }

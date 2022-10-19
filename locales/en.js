@@ -20,6 +20,7 @@ export default {
     ONBOARDING: 'Onboarding',
     CREDENTIAL: {
         ID: 'Id',
+        TYPE: 'Type',
         TITLE: 'Title',
         ISSUER: 'Issuer',
         STATUS: 'Status',
@@ -122,6 +123,12 @@ export default {
         REGISTRATION: 'Registration',
         PREFERRED_NAME: 'Preferred name',
         EUROPASS: "Europass",
-        STUDENT_ID: "Student ID"
+        STUDENT_ID: "Student ID",
+        ACHIEVMENT_TYPE:"Achievment type",
+        ACHIEVMENT_NAME:"Achievment name",
+        ACHIEVMENT_DESCRIPTION:"Achievment description",
+        ACHIEVMENT_CRITERIA_TYPE:"Criteria Type",
+        ACHIEVMENT_CRITERIA_narrative:"Criteria narrative"
+
     }
 }
