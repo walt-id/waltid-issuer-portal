@@ -99,14 +99,17 @@
               <b-check v-if="sessionId == null" v-model="preAuthorized" class="mb-2">Pre-authorized</b-check>
               <b-check v-if="sessionId == null" v-model="userPinRequired" class="mb-2">Requires user PIN</b-check>
               <input :disabled="!userPinRequired" v-if="userPinRequired" type="password" class="form-control border-primary mb-2 w-50 mx-auto" placeholder="PIN" aria-label="PIN" v-model="userPin" autocomplete="new-password">
-              <button @click="goToWallet(wallets[0].id)" class="btn btn-primary py-2 px-5 _cbtn" :disabled="!canSubmit"><img v-if="btnLoading" src="loader.gif" width="20px"/><span v-else>{{$t('CONFIRM')}}</span></button>
-              <button v-if="sessionId == null" @click="goToWallet('x-device')" class="btn btn-primary py-2 px-5 _cbtn" :disabled="!canSubmit"><i class="bi bi-upc-scan" /></button>
+              <button v-if="sessionId != null" @click="goToWallet(wallets[0].id)" class="btn btn-primary py-2 px-5 _cbtn" :disabled="!canSubmit"><img v-if="btnLoading" src="loader.gif" width="20px"/><span v-else>{{$t('CONFIRM')}}</span></button>
+              <button v-if="sessionId == null" @click="goToWallet('x-device')" class="btn btn-primary py-2 px-5" :disabled="!canSubmit">{{$t('START_ISSUANCE')}}</button>
           </div>
           <b-modal id="qr-modal" static="true" centered>
+            <div><b>{{$t('SCAN_TO_ISSUE')}}:</b></div>
             <div class="text-center" :v-show="qr-code-visible">
               <canvas :id="'qr-code'" />
+              <div class="py-2"><b>{{$t('ISSUE_TO')}}:</b></div>
               <div class="text-center small">
-                <pre class="qr-url-pre"><code>{{ walletUrl }}</code></pre>
+                <a :href="walletUrl" :disabled="!canSubmit"><i class="bi bi-app-indicator px-2"></i>{{$t('WALLET_APP')}}</a><br/>
+                <a @click="goToWallet(wallets[0].id)" href="#" :disabled="!canSubmit"><img v-if="btnLoading" src="loader.gif" width="20px"/><span v-else><i class="bi bi-box-arrow-up-right px-2"></i>{{wallets[0].description}}</span></a>
               </div>
             </div>
           </b-modal>

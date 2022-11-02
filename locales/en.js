@@ -16,6 +16,10 @@ export default {
     EDIT_CREDENTIAL: 'Edit credential data',
     CLOSE: 'Close',
     CONFIRM: 'Confirm',
+    START_ISSUANCE: 'Start issuance',
+    ISSUE_TO: 'Issue to',
+    WALLET_APP: 'Wallet app',
+    SCAN_TO_ISSUE: 'Scan to start issuance',
     ERROR_ISSUING: 'Requested credential(s) cannot be issued:',
     ONBOARDING: 'Onboarding',
     CREDENTIAL: {
