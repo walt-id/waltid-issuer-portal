@@ -55,12 +55,12 @@ export default {
   },
 
   proxy: {
-    '/issuer-api/': 'https://wallet.walt-test.cloud',
-    '/onboarding-api/': 'https://wallet.walt-test.cloud',
-    '/api/': 'https://wallet.walt-test.cloud'
-    //'/issuer-api/': 'http://localhost:8080/',
-    //'/onboarding-api/': 'http://localhost:8080/',
-    //'/api/': 'http://localhost:8080/'
+    //'/issuer-api/': 'https://wallet.walt-test.cloud',
+    //'/onboarding-api/': 'https://wallet.walt-test.cloud',
+    //'/api/': 'https://wallet.walt-test.cloud'
+    '/issuer-api/': 'http://localhost:8080/',
+    '/onboarding-api/': 'http://localhost:8080/',
+    '/api/': 'http://localhost:8080/'
   },
 
   i18n: {

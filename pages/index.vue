@@ -127,6 +127,7 @@
 <script>
 import CredentialEditor from '../components/CredentialEditor.vue'
 import QRious from "qrious"
+import {config} from '/config.js'
 export default {
   components: { CredentialEditor },
   data () {
@@ -155,8 +156,8 @@ export default {
     }
   },
   async asyncData ({ $axios, query }) {
-    const wallets = await $axios.$get('/issuer-api/wallets/list')
-    const issuables = await $axios.$get('/issuer-api/credentials/listIssuables', { params: query })
+    const wallets = await $axios.$get(`/issuer-api/${config.tenantId}/wallets/list`)
+    const issuables = await $axios.$get(`/issuer-api/${config.tenantId}/credentials/listIssuables`, { params: query })
     return { wallets, issuables }
   },
   mounted() {
@@ -185,7 +186,7 @@ export default {
       }
       console.log("Selected issuables:", selectedIssuables)
       const params = this.sessionId != null ? { "sessionId": this.sessionId } : { "walletId": walletId, "isPreAuthorized": this.preAuthorized, "userPin": this.userPin }
-      this.walletUrl = await this.$axios.$post('/issuer-api/credentials/issuance/request', selectedIssuables, { params: params })
+      this.walletUrl = await this.$axios.$post(`/issuer-api/${config.tenantId}/credentials/issuance/request`, selectedIssuables, { params: params })
       if(this.sessionId != null || walletId != "x-device") {
         window.location = this.walletUrl
       } else {
