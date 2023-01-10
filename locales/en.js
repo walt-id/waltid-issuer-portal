@@ -129,7 +129,7 @@ export default {
         EUROPASS: "Europass",
         STUDENT_ID: "Student ID",
         ISSUER_NAME: "Name of issuer",
-        HOLDER_NAME: "Name of holder"
+        HOLDER_NAME: "Name of holder",
         ACHIEVMENT_TYPE:"Achievment type",
         ACHIEVMENT_NAME:"Achievment name",
         ACHIEVMENT_DESCRIPTION:"Achievment description",

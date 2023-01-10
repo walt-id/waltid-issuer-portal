@@ -14,6 +14,7 @@ const config = {
         settings: false,
         connections: false
     },
-    home: "/Credentials"
+    home: "/Credentials",
+    tenantId: "default"
 }
 export{config}
