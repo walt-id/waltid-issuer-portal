@@ -18,6 +18,7 @@ export default {
     CONFIRM: 'Confirmer',
     CREDENTIAL: {
         ID: 'Id',
+        TYPE: 'Type',
         TITLE: 'Titre',
         ISSUER: 'Émetteur',
         STATUS: 'Statut',
@@ -123,5 +124,10 @@ export default {
         STUDENT_ID: "Élève ID",
         ISSUER_NAME: "Émetteur",
         HOLDER_NAME: "Le bénéficiaire"
+        ACHIEVMENT_TYPE:"Achievment type",
+        ACHIEVMENT_NAME:"Achievment name",
+        ACHIEVMENT_DESCRIPTION:"Achievment description",
+        ACHIEVMENT_CRITERIA_TYPE:"Criteria Type",
+        ACHIEVMENT_CRITERIA_narrative:"Criteria narrative"
     }
 }
