@@ -122,6 +122,8 @@ export default {
         PREFERRED_NAME: 'Preferred name',
         EUROPASS: "Europass",
         STUDENT_ID: "Élève ID",
+        ISSUER_NAME: "Émetteur",
+        HOLDER_NAME: "Le bénéficiaire"
         ACHIEVMENT_TYPE:"Achievment type",
         ACHIEVMENT_NAME:"Achievment name",
         ACHIEVMENT_DESCRIPTION:"Achievment description",
