@@ -1,7 +1,7 @@
 
 export default {
     CLAIM_CREDENTIALS: 'Claim credentials',
-    SELECT_CREDENTIALS_MSG: 'Select the credential you want to get issued',
+    SELECT_CREDENTIALS_MSG: 'Select the credential(s) you want to claim',
     SIGN_IN_MSG: 'Please sign in to {msg}',
     EMAIL_ADDRESS: 'E-mail address',
     PASSWORD: 'Password',
@@ -16,10 +16,15 @@ export default {
     EDIT_CREDENTIAL: 'Edit credential data',
     CLOSE: 'Close',
     CONFIRM: 'Confirm',
+    START_ISSUANCE: 'Start issuance',
+    ISSUE_TO: 'Issue to',
+    WALLET_APP: 'Wallet app',
+    SCAN_TO_ISSUE: 'Scan to start issuance',
     ERROR_ISSUING: 'Requested credential(s) cannot be issued:',
     ONBOARDING: 'Onboarding',
     CREDENTIAL: {
         ID: 'Id',
+        TYPE: 'Type',
         TITLE: 'Title',
         ISSUER: 'Issuer',
         STATUS: 'Status',
@@ -122,6 +127,13 @@ export default {
         REGISTRATION: 'Registration',
         PREFERRED_NAME: 'Preferred name',
         EUROPASS: "Europass",
-        STUDENT_ID: "Student ID"
+        STUDENT_ID: "Student ID",
+        ISSUER_NAME: "Name of issuer",
+        HOLDER_NAME: "Name of holder"
+        ACHIEVMENT_TYPE:"Achievment type",
+        ACHIEVMENT_NAME:"Achievment name",
+        ACHIEVMENT_DESCRIPTION:"Achievment description",
+        ACHIEVMENT_CRITERIA_TYPE:"Criteria Type",
+        ACHIEVMENT_CRITERIA_narrative:"Criteria narrative"
     }
 }
