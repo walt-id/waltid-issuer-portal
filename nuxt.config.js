@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'waltid-issuer-portal',
+    title: 'Howest University of Applied Sciences',
     htmlAttrs: {
       lang: 'en'
     },
@@ -12,7 +12,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/howest.ico' }
     ]
   },
 
@@ -21,7 +21,8 @@ export default {
     "@/assets/css/core.css",
     "@/assets/css/animate.min.css",
     "@/assets/css/animations.css",
-    "@/assets/css/bootstrap-icons.css"
+    "@/assets/css/bootstrap-icons.css",
+    "@south-paw/typeface-vag-rounded"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -55,12 +56,12 @@ export default {
   },
 
   proxy: {
-    //'/issuer-api/': 'https://wallet.walt-test.cloud',
-    //'/onboarding-api/': 'https://wallet.walt-test.cloud',
-    //'/api/': 'https://wallet.walt-test.cloud'
-    '/issuer-api/': 'http://localhost:8080/',
-    '/onboarding-api/': 'http://localhost:8080/',
-    '/api/': 'http://localhost:8080/'
+    '/issuer-api/': 'https://wallet.walt-test.cloud',
+    '/onboarding-api/': 'https://wallet.walt-test.cloud',
+    '/api/': 'https://wallet.walt-test.cloud'
+    //'/issuer-api/': 'http://localhost:8080/',
+    //'/onboarding-api/': 'http://localhost:8080/',
+    //'/api/': 'http://localhost:8080/'
   },
 
   i18n: {
