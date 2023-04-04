@@ -195,8 +195,8 @@ export default {
 
 <style scoped>
 body ._main {
-  background: rgb(54, 54, 54);
-  background-image: url("../assets/line-explainer-video-thumbnail.png");
+  /*background: rgb(54, 54, 54);*/
+  background-image: url("https://neom.scene7.com/is/image/neom/line-explainer-video-thumbnail?wid=1920&hei=1080");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -204,10 +204,10 @@ body ._main {
   color: rgb(255, 255, 255);
 }
 .navbar {
-  background-image: url("../assets/line-explainer-video-thumbnail.jpg");
+  /*background-image: url("../assets/line-explainer-video-thumbnail.jpg");*/
 }
 .navbar .container {
-  background-color: rgba(33,37,41,0.7);
+ /* background-color: rgba(33,37,41,0.7);*/
 }
 
 label{
