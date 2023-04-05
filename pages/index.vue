@@ -48,7 +48,6 @@
     </header>
     <main class="_main">
       <section class="py-5 text-center container">
-        <h1 class="howest-headline">Howest University of Applied Sciences</h1>
         <div class="row py-lg-5 howest-section">
           <div class="col-lg-6 col-md-8 mx-auto">
             <h2 class="fw-normal howest-headline">
@@ -195,10 +194,10 @@ export default {
 
 <style scoped>
 body ._main {
-  background: rgb(221, 221, 221);
+  background-image: url("https://www.howest.be/fs/styles/full_banner_home/public/images/Cover%201%20HQ%20PENTA%20(Thomas%20Rau).jpg");
 }
 .navbar {
-  background-image: url("../assets/52045036693_6801cb4d9c_o.jpg");
+ /* background-image: url("../assets/52045036693_6801cb4d9c_o.jpg");*/
 }
 .howest-section {
   background: rgb(235, 246, 250);
@@ -209,7 +208,7 @@ body ._main {
   font-weight: 400;
 }
 .howest-logo {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.0);
   border-radius: 25px;
 }
 label{
