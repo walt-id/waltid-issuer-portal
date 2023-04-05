@@ -49,14 +49,14 @@
     </header>
     <main class="_main">
       <section class="py-5 text-center container">
-        <div class="row py-lg-5">
+        <div class="row py-lg-5 neom-section">
           <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-normal">
               {{$t('CLAIM_CREDENTIALS')}}
             </h1>
-            <p class="lead text-muted fw-normal mb-4">
+            <p >
               {{$t('SELECT_CREDENTIALS_MSG')}}
-            </p>
+            </p><br>
               <form>
                 <div class="d-flex flex-column align-items-md-center align-items-sm-start text-start">
                   <div class="form-check col-md-9 col-sm-12 mb-3" v-for="issuable in issuables.credentials" :key="issuable.type">
@@ -195,8 +195,8 @@ export default {
 
 <style scoped>
 body ._main {
-  background: rgb(54, 54, 54);
-  background-image: url("../assets/line-explainer-video-thumbnail.png");
+  /*background: rgb(54, 54, 54);*/
+  background-image: url("https://neom.scene7.com/is/image/neom/line-explainer-video-thumbnail?wid=1920&hei=1080");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -204,12 +204,15 @@ body ._main {
   color: rgb(255, 255, 255);
 }
 .navbar {
-  background-image: url("../assets/line-explainer-video-thumbnail.jpg");
+  /*background-image: url("../assets/line-explainer-video-thumbnail.jpg");*/
 }
 .navbar .container {
-  background-color: rgba(33,37,41,0.7);
+ /* background-color: rgba(33,37,41,0.7);*/
 }
-
+.neom-section {
+  background: rgba(184,139,53,0.8);
+  border-radius: 25px;
+}
 label{
   font-size: 20px;
   margin-top: -3px;
