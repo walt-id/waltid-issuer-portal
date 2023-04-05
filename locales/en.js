@@ -7,7 +7,7 @@ export default {
     PASSWORD: 'Password',
     REMEMBER_ME: 'Remember me',
     SIGN_IN: 'Sign in',
-    VerifiableId: 'Verifiable ID document',
+    VerifiableId: 'Student Card',
     VerifiableDiploma: 'Verifiable university diploma',
     VerifiableVaccinationCertificate: 'Verifiable certificate of vaccination',
     ProofOfResidence: 'Proof of residence',
