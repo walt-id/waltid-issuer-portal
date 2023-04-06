@@ -10,6 +10,7 @@ export default {
     VerifiableId: 'Verifiable Student ID',
     VerifiableDiploma: 'Verifiable university diploma',
     VerifiableVaccinationCertificate: 'Verifiable certificate of vaccination',
+    Europass: 'Verifiable Diploma (in Europass format)',
     ProofOfResidence: 'Proof of residence',
     ParticipantCredential: "Gaia-X Participant Credential",
     VIEW_DETAILS: 'View details',
@@ -134,6 +135,9 @@ export default {
         ACHIEVMENT_NAME:"Achievment name",
         ACHIEVMENT_DESCRIPTION:"Achievment description",
         ACHIEVMENT_CRITERIA_TYPE:"Criteria Type",
-        ACHIEVMENT_CRITERIA_narrative:"Criteria narrative"
+        ACHIEVMENT_CRITERIA_narrative:"Criteria narrative",
+        ACHIEVEMENT_TITLE: "Achievement",
+        ENTITLEMENT_TITLE: "Entitles to",
+        ENTITLEMENT_DEFINITION: "Entitlement description"
     }
 }

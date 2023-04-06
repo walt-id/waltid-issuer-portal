@@ -865,7 +865,7 @@
       <div class="row _forms mb-3">
         <div class="col-11">
           <div class="right-inner-addon input-container">
-            <i class="bi bi-card-text"></i>
+            <i class="bi bi-card-text"></i> <small>{{ $t('CREDENTIAL.STUDENT_ID') }}</small>
             <input
               :disabled="!enableEditor"
               type="text"
@@ -874,76 +874,138 @@
               "
               :placeholder="$t('CREDENTIAL.STUDENT_ID')"
               v-model="
-                issuable.credentialData.credentialSubject.identifier.value
+                issuable.credentialData.credentialSubject.identifier[0].value
               "
             />
           </div>
         </div>
       </div>
-      <!--        <div class="row _forms mb-3">
-            <div class="col-11">
-            <div class="right-inner-addon input-container">
-                <i class="bi bi-card-text"></i>
-                <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.FIRST_NAME')" aria-label="First name" v-model="issuable.credentialData.credentialSubject.givenNames">
-            </div>
-            </div>
+      <div class="row _forms mb-3">
+        <div class="col-11">
+          <div class="right-inner-addon input-container">
+            <i class="bi bi-card-text"></i> <small>{{ $t('CREDENTIAL.ACHIEVEMENT_TITLE') }}</small>
+            <input
+              :disabled="!enableEditor"
+              type="text"
+              :class="
+                enableEditor ? 'form-control border-primary' : 'form-control'
+              "
+              :placeholder="$t('CREDENTIAL.ACHIEVEMENT_TITLE')"
+              v-model="
+                issuable.credentialData.credentialSubject.achieved[0].title
+              "
+            />
+          </div>
         </div>
-        <div class="row _forms mb-3">
-            <div class="col-11">
-            <div class="right-inner-addon input-container">
-                <i class="bi bi-card-text"></i>
-                <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.LAST_NAME')" v-model="issuable.credentialData.credentialSubject.familyName">
-            </div>
-            </div>
+      </div>
+      <div class="row _forms mb-3">
+        <div class="col-11">
+          <div class="right-inner-addon input-container">
+            <i class="bi bi-card-text"></i> <small>{{ $t('CREDENTIAL.GRADE') }}</small>
+            <input
+              :disabled="!enableEditor"
+              type="text"
+              :class="
+                enableEditor ? 'form-control border-primary' : 'form-control'
+              "
+              :placeholder="$t('CREDENTIAL.GRADE')"
+              v-model="
+                issuable.credentialData.credentialSubject.achieved[0].wasDerivedFrom[0].grade
+              "
+            />
+          </div>
         </div>
-        <div class="row _forms mb-3">
-            <div class="col-11">
-            <div class="right-inner-addon input-container">
-                <i class="bi bi-calendar2-event"></i>
-                <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.DATE_OF_BIRTH')" aria-label="DateOfBirth" v-model="issuable.credentialData.credentialSubject.dateOfBirth">
-            </div>
-            </div>
+      </div>
+      <div class="row _forms mb-3">
+        <div class="col-11">
+          <div class="right-inner-addon input-container">
+            <i class="bi bi-card-text"></i> <small>{{ $t('CREDENTIAL.WAS_AWARDED_BY') }}</small>
+            <input
+              :disabled="!enableEditor"
+              type="text"
+              :class="
+                enableEditor ? 'form-control border-primary' : 'form-control'
+              "
+              :placeholder="$t('CREDENTIAL.WAS_AWARDED_BY')"
+              v-model="
+                issuable.credentialData.credentialSubject.achieved[0].wasAwardedBy.awardingBody[0]
+              "
+            />
+          </div>
         </div>
-        <div class="row _forms mb-3">
-            <div class="col-11">
-            <div class="right-inner-addon input-container">
-                <i class="bi bi-calendar2-event"></i>
-                <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.ECTS_CREDIT_POINTS')" v-model="issuable.credentialData.credentialSubject.learningSpecification.ECTSCreditPoints">
-            </div>
-            </div>
+      </div>
+      <div class="row _forms mb-3">
+        <div class="col-11">
+          <div class="right-inner-addon input-container">
+            <i class="bi bi-card-text"></i> <small>{{ $t('CREDENTIAL.AWARDING_LOCATION') }}</small>
+            <input
+              :disabled="!enableEditor"
+              type="text"
+              :class="
+                enableEditor ? 'form-control border-primary' : 'form-control'
+              "
+              :placeholder="$t('CREDENTIAL.AWARDING_LOCATION')"
+              v-model="
+                issuable.credentialData.credentialSubject.achieved[0].wasAwardedBy.awardingLocation
+              "
+            />
+          </div>
         </div>
-        <div class="row _forms mb-3">
-            <div class="col-11">
-            <div class="right-inner-addon input-container">
-                <i class="bi bi-calendar2-event"></i>
-                <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.ID')" v-model="issuable.credentialData.credentialSubject.learningAchievement.id">
-            </div>
-            </div>
+      </div>
+      <div class="row _forms mb-3">
+        <div class="col-11">
+          <div class="right-inner-addon input-container">
+            <i class="bi bi-card-text"></i> <small>{{ $t('CREDENTIAL.AWARDING_DATE') }}</small>
+            <input
+              :disabled="!enableEditor"
+              type="text"
+              :class="
+                enableEditor ? 'form-control border-primary' : 'form-control'
+              "
+              :placeholder="$t('CREDENTIAL.AWARDING_DATE')"
+              v-model="
+                issuable.credentialData.credentialSubject.achieved[0].wasAwardedBy.awardingDate
+              "
+            />
+          </div>
         </div>
-        <div class="row _forms mb-3">
-            <div class="col-11">
-            <div class="right-inner-addon input-container">
-                <i class="bi bi-calendar2-event"></i>
-                <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.TITLE')" v-model="issuable.credentialData.credentialSubject.learningAchievement.title">
-            </div>
-            </div>
+      </div>
+      <div class="row _forms mb-3">
+        <div class="col-11">
+          <div class="right-inner-addon input-container">
+            <i class="bi bi-card-text"></i> <small>{{ $t('CREDENTIAL.ENTITLEMENT_TITLE') }}</small>
+            <input
+              :disabled="!enableEditor"
+              type="text"
+              :class="
+                enableEditor ? 'form-control border-primary' : 'form-control'
+              "
+              :placeholder="$t('CREDENTIAL.ENTITLEMENT_TITLE')"
+              v-model="
+                issuable.credentialData.credentialSubject.entitledTo[0].title
+              "
+            />
+          </div>
         </div>
-        <div class="row _forms mb-3">
-            <div class="col-11">
-            <div class="right-inner-addon input-container">
-                <i class="bi bi-calendar2-event"></i>
-                <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.DESCRIPTION')" v-model="issuable.credentialData.credentialSubject.learningAchievement.description">
-            </div>
-            </div>
+      </div>
+      <div class="row _forms mb-3">
+        <div class="col-11">
+          <div class="right-inner-addon input-container">
+            <i class="bi bi-card-text"></i> <small>{{ $t('CREDENTIAL.ENTITLEMENT_DEFINITION') }}</small>
+            <input
+              :disabled="!enableEditor"
+              type="text"
+              :class="
+                enableEditor ? 'form-control border-primary' : 'form-control'
+              "
+              :placeholder="$t('CREDENTIAL.ENTITLEMENT_DEFINITION')"
+              v-model="
+                issuable.credentialData.credentialSubject.entitledTo[0].definition
+              "
+            />
+          </div>
         </div>
-        <div class="row _forms mb-3">
-            <div class="col-11">
-            <div class="right-inner-addon input-container">
-                <i class="bi bi-calendar2-event"></i>
-                <input :disabled="!enableEditor" type="text" :class="enableEditor ? 'form-control border-primary' : 'form-control'" :placeholder="$t('CREDENTIAL.ADDITIONAL_NOTE')" v-model="issuable.credentialData.credentialSubject.learningAchievement.additionalNote">
-            </div>
-            </div>
-        </div>-->
+      </div>
     </div>
   </div>
 </template>
