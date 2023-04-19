@@ -861,7 +861,7 @@
     </div>
 
     <!-- Europass -->
-    <div v-if="issuable.type == 'Europass'">
+    <div v-if="issuable.type == 'Europass' || issuable.type == 'EUDiploma'">
       <div class="row _forms mb-3">
         <div class="col-11">
           <div class="right-inner-addon input-container">
