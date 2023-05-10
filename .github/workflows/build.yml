@@ -68,4 +68,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: waltid/ssikit-issuer-portal:${{ env.release_version }}
+          tags: waltid/ssikit-issuer-portal:howest-${{ env.release_version }}
