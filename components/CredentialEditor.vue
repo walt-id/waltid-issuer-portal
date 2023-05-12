@@ -1,5 +1,29 @@
 <template>
   <div>
+    <!-- StudentId -->
+    <div v-if="issuable.type == 'StudentId'">
+      <div class="row _forms mb-3">
+        <div class="col-11">
+          <div class="right-inner-addon input-container">
+            <i class="bi bi-credit-card-2-front"></i>
+            <input
+              :disabled="!enableEditor"
+              type="text"
+              :class="
+                enableEditor ? 'form-control border-primary' : 'form-control'
+              "
+              :placeholder="$t('CREDENTIAL.PERSONAL_IDENTIFIER')"
+              aria-label="PersonalIdentifier"
+              v-model="
+                issuable.credentialData.credentialSubject.personalIdentifier
+              "
+            />
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
     <!-- VerifiableId -->
     <div v-if="issuable.type == 'VerifiableId'">
       <div class="row _forms mb-3">
