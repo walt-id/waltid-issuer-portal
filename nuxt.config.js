@@ -45,8 +45,15 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    '@nuxtjs/robots',
   ],
+
+  // Robots
+  robots: {
+    UserAgent: '*',
+    Disallow: '/'
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
