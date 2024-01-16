@@ -1,5 +1,11 @@
 # waltid-issuer-portal
 
+__Important__: Please be informed that the Issuer portal has been deprecated and no longer receives updates. 
+
+However, all functionalities offered by the Issuer Portal are now available via the new walt.id portal that combines both issuance and verification. You can find it in the walt.id identity repo.
+
+For any clarification or questions, feel free to contact us.
+
 ## Build Setup
 
 ### Using Docker
